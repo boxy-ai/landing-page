@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 180" fill="none">
+  <g stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Key points (approx from the raster): 
+         A(92,35) B(142,62) C(142,119) D(92,146) E(42,118) F(42,62) G(92,85) -->
+    <!-- Top face -->
+    <path d="M92 35 L142 62 L92 85 L42 62 Z"/>
+    <!-- Vertical edges -->
+    <path d="M42 62 L42 118"/>
+    <path d="M142 62 L142 119"/>
+    <path d="M92 85 L92 146"/>
+    <!-- Bottom visible edges -->
+    <path d="M42 118 L92 146 L142 119"/>
+  </g>
+</svg>

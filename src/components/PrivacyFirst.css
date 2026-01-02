@@ -1,0 +1,32 @@
+.privacy-first {
+  padding: var(--spacing-3xl) 0;
+  background: linear-gradient(180deg, var(--bg) 0%, rgba(10, 12, 18, 0.5) 100%);
+}
+
+.privacy-first__title {
+  text-align: center;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  margin-bottom: 1rem;
+}
+
+.privacy-first__subtitle {
+  text-align: center;
+  font-size: 1.25rem;
+  color: var(--muted);
+  max-width: 700px;
+  margin: 0 auto 3rem;
+}
+
+.privacy-first__cards {
+  margin-top: 3rem;
+}
+
+@media (max-width: 768px) {
+  .privacy-first {
+    padding: var(--spacing-2xl) 0;
+  }
+
+  .privacy-first__subtitle {
+    margin-bottom: 2rem;
+  }
+}

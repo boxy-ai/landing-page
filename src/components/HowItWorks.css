@@ -1,0 +1,134 @@
+.how-it-works {
+  padding: var(--spacing-3xl) 0;
+  background: rgba(10, 12, 18, 0.3);
+}
+
+.how-it-works__title {
+  text-align: center;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  margin-bottom: 1rem;
+}
+
+.how-it-works__subtitle {
+  text-align: center;
+  font-size: 1.25rem;
+  color: var(--muted);
+  max-width: 700px;
+  margin: 0 auto 4rem;
+}
+
+.how-it-works__steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  position: relative;
+}
+
+.step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.step__icon {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(55, 194, 255, 0.1);
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+  color: var(--accent);
+  transition: all 0.3s ease;
+}
+
+.step__icon svg {
+  width: 36px;
+  height: 36px;
+}
+
+.step:hover .step__icon {
+  background: rgba(55, 194, 255, 0.2);
+  box-shadow: 0 0 30px rgba(55, 194, 255, 0.4);
+  transform: scale(1.1);
+}
+
+.step__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--text);
+}
+
+.step__description {
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 0.9375rem;
+}
+
+.step__arrow {
+  position: absolute;
+  right: -2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--accent);
+  opacity: 0.5;
+}
+
+.step__arrow svg {
+  width: 32px;
+  height: 32px;
+}
+
+@media (max-width: 1024px) {
+  .how-it-works__steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .step:nth-child(2) .step__arrow,
+  .step:nth-child(4) .step__arrow {
+    display: none;
+  }
+
+  .step:nth-child(1) .step__arrow,
+  .step:nth-child(3) .step__arrow {
+    bottom: -2rem;
+    right: 50%;
+    top: auto;
+    transform: translateX(50%) rotate(90deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .how-it-works {
+    padding: var(--spacing-2xl) 0;
+  }
+
+  .how-it-works__subtitle {
+    margin-bottom: 2rem;
+  }
+
+  .how-it-works__steps {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .step {
+    padding: 1.5rem 1rem;
+  }
+
+  .step__arrow {
+    display: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .step:hover .step__icon {
+    transform: none;
+  }
+}

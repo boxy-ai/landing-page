@@ -66,10 +66,18 @@
   .section.hero {
     min-height: auto;
     padding: 8rem 0 4rem;
+    background-position: 65% center;
   }
 
   .hero__features {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .section.hero {
+    padding: 6rem 0 3rem;
+    background-position: 60% center;
   }
 }

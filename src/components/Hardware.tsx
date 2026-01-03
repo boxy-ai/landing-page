@@ -13,7 +13,7 @@ export function Hardware() {
         bgImage={backImage}
         overlayVariant="hardware"
         className="hardware-hero"
-        minHeight="90vh"
+        minHeight="90dvh"
       >
         <Container>
           <div className="hardware-hero__content">

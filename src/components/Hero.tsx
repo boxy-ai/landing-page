@@ -11,7 +11,7 @@ export function Hero() {
       id="hero"
       bgImage={frontImage}
       overlayVariant="hero"
-      minHeight="100vh"
+      minHeight="100dvh"
       className="hero"
     >
       <Container>

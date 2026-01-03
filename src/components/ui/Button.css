@@ -67,6 +67,14 @@
   outline-offset: 2px;
 }
 
+@media (max-width: 480px) {
+  .btn {
+    white-space: normal;
+    text-align: center;
+    min-width: 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .btn {
     transition: none;

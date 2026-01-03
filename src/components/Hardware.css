@@ -65,3 +65,22 @@
     padding: 0;
   }
 }
+
+@media (max-width: 480px) {
+  .hardware-hero {
+    padding: 4rem 0 2rem;
+    background-position: 50% center;
+  }
+
+  .hardware-internals {
+    padding: var(--spacing-xl) 0;
+  }
+
+  .hardware-internals__header {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .hardware-internals__subtitle {
+    font-size: 1rem;
+  }
+}

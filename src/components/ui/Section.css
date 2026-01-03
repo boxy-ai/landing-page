@@ -52,3 +52,33 @@
     scroll-margin-top: 60px;
   }
 }
+
+@media (max-width: 480px) {
+  .section {
+    padding: 3rem 0;
+  }
+
+  /* Mobile-optimized overlays for better text contrast */
+  .section--overlay-hero::before {
+    background:
+      linear-gradient(180deg, rgba(5, 7, 17, 0.75) 0%, rgba(5, 7, 17, 0.60) 50%, rgba(5, 7, 17, 0.85) 100%),
+      radial-gradient(circle at 50% 30%, rgba(55, 194, 255, 0.12) 0%, transparent 60%);
+  }
+
+  .section--overlay-warm::before {
+    background:
+      linear-gradient(180deg, rgba(5, 7, 17, 0.70) 0%, rgba(5, 7, 17, 0.55) 50%, rgba(5, 7, 17, 0.80) 100%),
+      radial-gradient(circle at 50% 40%, rgba(255, 177, 91, 0.08) 0%, transparent 60%);
+  }
+
+  .section--overlay-hardware::before {
+    background:
+      radial-gradient(circle at 50% 50%, rgba(55, 194, 255, 0.08) 0%, transparent 50%),
+      linear-gradient(180deg, rgba(5, 7, 17, 0.60) 0%, rgba(5, 7, 17, 0.75) 100%);
+  }
+
+  .section--overlay-interface::before {
+    background:
+      linear-gradient(180deg, rgba(5, 7, 17, 0.50) 0%, rgba(5, 7, 17, 0.70) 100%);
+  }
+}

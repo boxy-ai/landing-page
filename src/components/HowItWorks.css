@@ -127,6 +127,40 @@
   }
 }
 
+@media (max-width: 480px) {
+  .how-it-works {
+    padding: var(--spacing-xl) 0;
+  }
+
+  .how-it-works__subtitle {
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+  }
+
+  .step {
+    padding: 1.25rem 0.75rem;
+  }
+
+  .step__icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1rem;
+  }
+
+  .step__icon svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .step__title {
+    font-size: 1.125rem;
+  }
+
+  .step__description {
+    font-size: 0.875rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .step:hover .step__icon {
     transform: none;

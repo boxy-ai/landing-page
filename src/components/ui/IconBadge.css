@@ -29,3 +29,13 @@
   color: var(--text);
   white-space: nowrap;
 }
+
+@media (max-width: 480px) {
+  .icon-badge {
+    flex-wrap: wrap;
+  }
+
+  .icon-badge__label {
+    white-space: normal;
+  }
+}

@@ -37,6 +37,14 @@
 @media (max-width: 768px) {
   .proactive-agent {
     min-height: auto;
+    padding-top: 4rem;
     background-position: 70% 60%;
+  }
+}
+
+@media (max-width: 480px) {
+  .proactive-agent {
+    padding-top: 3rem;
+    background-position: 65% center;
   }
 }

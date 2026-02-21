@@ -2,6 +2,7 @@ import { Outlet, useLocation } from "react-router";
 import { useEffect } from "react";
 import { Navigation } from "./Navigation";
 import { Footer } from "./Footer";
+import { SeoHead } from "./SeoHead";
 
 export function Layout() {
   const { pathname, hash } = useLocation();
@@ -23,6 +24,7 @@ export function Layout() {
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white relative">
+      <SeoHead pathname={pathname} />
       <Navigation />
       <main className="relative z-10">
         <Outlet />

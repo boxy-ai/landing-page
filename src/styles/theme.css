@@ -1,0 +1,435 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 14px;
+  --background: #0a0a0a;
+  --foreground: #ffffff;
+  --card: #111111;
+  --card-foreground: #ffffff;
+  --popover: #111111;
+  --popover-foreground: #ffffff;
+  --primary: #ffffff;
+  --primary-foreground: #0a0a0a;
+  --secondary: #1a1a1a;
+  --secondary-foreground: #ffffff;
+  --muted: #1a1a1a;
+  --muted-foreground: #888888;
+  --accent: #1a1a1a;
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #222222;
+  --input: transparent;
+  --input-background: #111111;
+  --switch-background: #333333;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: #333333;
+  --chart-1: #00F0FF;
+  --chart-2: #FF5A00;
+  --chart-3: #10b981;
+  --chart-4: #f59e0b;
+  --chart-5: #3b82f6;
+  --radius: 0px;
+  --sidebar: #0a0a0a;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #ffffff;
+  --sidebar-primary-foreground: #0a0a0a;
+  --sidebar-accent: #1a1a1a;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #222222;
+  --sidebar-ring: #333333;
+
+  /* Boxy site palette */
+  --boxy-bg: #0a0a0a;
+  --boxy-bg-elevated: #111111;
+  --boxy-bg-subtle: #0d0d0d;
+  --boxy-text: #ffffff;
+  --boxy-text-secondary: #888888;
+  --boxy-text-tertiary: #666666;
+  --boxy-text-muted: #555555;
+  --boxy-text-faint: #444444;
+  --boxy-text-ghost: #333333;
+  --boxy-border: #222222;
+  --boxy-border-subtle: #1a1a1a;
+  --boxy-border-strong: #333333;
+  --boxy-cyan: #00F0FF;
+  --boxy-orange: #FF5A00;
+  --boxy-green: #10b981;
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+/* ============ LIGHT MODE ============ */
+html.light {
+  --background: #ffffff;
+  --foreground: #171717;
+  --card: #ffffff;
+  --card-foreground: #171717;
+  --popover: #ffffff;
+  --popover-foreground: #171717;
+  --primary: #171717;
+  --primary-foreground: #ffffff;
+  --secondary: #f5f5f5;
+  --secondary-foreground: #171717;
+  --muted: #f5f5f5;
+  --muted-foreground: #737373;
+  --accent: #f5f5f5;
+  --accent-foreground: #171717;
+  --border: #e5e5e5;
+  --input: #e5e5e5;
+  --input-background: #fafafa;
+  --switch-background: #d4d4d4;
+  --ring: #d4d4d4;
+
+  --boxy-bg: #ffffff;
+  --boxy-bg-elevated: #ffffff;
+  --boxy-bg-subtle: #fafafa;
+  --boxy-text: #171717;
+  --boxy-text-secondary: #525252;
+  --boxy-text-tertiary: #737373;
+  --boxy-text-muted: #a3a3a3;
+  --boxy-text-faint: #c4c4c4;
+  --boxy-text-ghost: #d4d4d4;
+  --boxy-border: #e5e5e5;
+  --boxy-border-subtle: #f0f0f0;
+  --boxy-border-strong: #d4d4d4;
+  --boxy-cyan: #0891b2;
+  --boxy-orange: #ea580c;
+  --boxy-green: #059669;
+}
+
+/* Light mode overrides for hardcoded Tailwind arbitrary colors */
+html.light {
+  color-scheme: light;
+}
+
+html.light .min-h-screen,
+html.light [class*="bg-[#0a0a0a]"] {
+  background-color: var(--boxy-bg) !important;
+}
+
+html.light .text-white {
+  color: var(--boxy-text) !important;
+}
+
+html.light .text-\[\#888\],
+html.light .text-\[\#888888\] {
+  color: var(--boxy-text-secondary) !important;
+}
+
+html.light .text-\[\#666\],
+html.light .text-\[\#666666\] {
+  color: var(--boxy-text-tertiary) !important;
+}
+
+html.light .text-\[\#555\],
+html.light .text-\[\#555555\] {
+  color: var(--boxy-text-muted) !important;
+}
+
+html.light .text-\[\#444\],
+html.light .text-\[\#444444\] {
+  color: var(--boxy-text-faint) !important;
+}
+
+html.light .text-\[\#333\],
+html.light .text-\[\#333333\] {
+  color: var(--boxy-text-ghost) !important;
+}
+
+html.light .text-\[\#999\] {
+  color: var(--boxy-text-tertiary) !important;
+}
+
+html.light .border-\[\#222\],
+html.light .border-\[\#222222\] {
+  border-color: var(--boxy-border) !important;
+}
+
+html.light .border-\[\#1a1a1a\] {
+  border-color: var(--boxy-border-subtle) !important;
+}
+
+html.light .border-\[\#333\],
+html.light .border-\[\#333333\] {
+  border-color: var(--boxy-border-strong) !important;
+}
+
+html.light .border-\[\#111\] {
+  border-color: var(--boxy-border-subtle) !important;
+}
+
+html.light .bg-\[\#111\],
+html.light .bg-\[\#111111\] {
+  background-color: var(--boxy-bg-subtle) !important;
+}
+
+html.light .bg-\[\#0d0d0d\] {
+  background-color: var(--boxy-bg-subtle) !important;
+}
+
+html.light .text-\[\#00F0FF\] {
+  color: var(--boxy-cyan) !important;
+}
+
+html.light .border-\[\#00F0FF\] {
+  border-color: var(--boxy-cyan) !important;
+}
+
+html.light .text-\[\#FF5A00\] {
+  color: var(--boxy-orange) !important;
+}
+
+html.light .border-\[\#FF5A00\] {
+  border-color: var(--boxy-orange) !important;
+}
+
+html.light .text-\[\#10b981\] {
+  color: var(--boxy-green) !important;
+}
+
+html.light .text-\[\#ef4444\] {
+  color: #b91c1c !important;
+}
+
+/* Light mode nav */
+html.light nav {
+  background-color: rgba(255, 255, 255, 0.97) !important;
+  border-bottom-color: var(--boxy-border) !important;
+}
+
+html.light nav.backdrop-blur-sm,
+html.light nav [class*="backdrop-blur"] {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+}
+
+/* Light mode sections and cards */
+html.light .bg-\[\#0a0a0a\] {
+  background-color: var(--boxy-bg) !important;
+}
+
+/* Elevated card surfaces with subtle shadow for depth */
+html.light .border.border-\[\#1a1a1a\],
+html.light .border.border-\[\#222\] {
+  background-color: var(--boxy-bg-elevated) !important;
+}
+
+/* CTA box stronger shadow */
+html.light .border.border-\[\#222\].p-8,
+html.light .border.border-\[\#222\].p-6 {
+  box-shadow: none !important;
+}
+
+/* Light mode feature accent boxes */
+html.light .bg-\[\#FF5A00\]\/5,
+html.light [class*="bg-[#FF5A00]/5"] {
+  background-color: rgba(234, 88, 12, 0.05) !important;
+}
+
+html.light .bg-\[\#00F0FF\]\/5,
+html.light [class*="bg-[#00F0FF]/5"] {
+  background-color: rgba(8, 145, 178, 0.05) !important;
+}
+
+html.light .bg-\[\#10b981\]\/5,
+html.light [class*="bg-[#10b981]/5"] {
+  background-color: rgba(5, 150, 105, 0.05) !important;
+}
+
+html.light .bg-\[\#ef4444\]\/5,
+html.light [class*="bg-[#ef4444]/5"] {
+  background-color: rgba(220, 38, 38, 0.05) !important;
+}
+
+/* Light mode orange CTA button — keep high contrast */
+html.light .bg-\[\#FF5A00\] {
+  background-color: var(--boxy-orange) !important;
+  color: #ffffff !important;
+}
+
+/* Light mode muted beta button */
+html.light [class*="bg-[#FF5A00]/20"] {
+  background-color: rgba(212, 72, 0, 0.1) !important;
+}
+
+html.light [class*="text-[#FF5A00]/60"] {
+  color: rgba(212, 72, 0, 0.5) !important;
+}
+
+/* Light mode orange bordered button (We Are Hiring) */
+html.light [class*="hover:bg-[#FF5A00]/10"]:hover {
+  background-color: rgba(212, 72, 0, 0.06) !important;
+}
+
+/* Light mode tooltip */
+html.light .bg-\[\#1a1a1a\] {
+  background-color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+  border-color: var(--boxy-border) !important;
+}
+
+/* Light mode footer */
+html.light footer {
+  background-color: #fafafa !important;
+  border-top-color: var(--boxy-border) !important;
+}
+
+/* Light mode obfuscation diff panel */
+html.light .border-r.border-\[\#222\] {
+  border-color: var(--boxy-border) !important;
+}
+
+/* Light mode logo — invert for dark logo on light bg */
+html.light img[alt="Boxy"] {
+  filter: brightness(0.1);
+}
+
+/* Light mode scrollbar */
+html.light ::-webkit-scrollbar-track {
+  background: var(--boxy-bg-subtle);
+}
+
+html.light ::-webkit-scrollbar-thumb {
+  background: var(--boxy-border-strong);
+}
+
+/* Light mode hover states for nav links */
+html.light .hover\:text-\[\#00F0FF\]:hover {
+  color: var(--boxy-cyan) !important;
+}
+
+html.light .hover\:text-\[\#FF5A00\]:hover {
+  color: var(--boxy-orange) !important;
+}
+
+html.light .hover\:border-\[\#333\]:hover {
+  border-color: var(--boxy-border-strong) !important;
+}
+
+html.light .hover\:border-\[\#00F0FF\]:hover {
+  border-color: var(--boxy-cyan) !important;
+}
+
+html.light .hover\:border-\[\#FF5A00\]:hover {
+  border-color: var(--boxy-orange) !important;
+}
+
+html.light .hover\:text-white:hover {
+  color: var(--boxy-text) !important;
+}
+
+/* Light mode details/summary (hiring roles) */
+html.light details {
+  background-color: var(--boxy-bg-elevated) !important;
+}
+
+html.light details[open] {
+  box-shadow: none !important;
+}
+
+/* Light mode separator lines */
+html.light .border-t.border-\[\#1a1a1a\] {
+  border-top-color: var(--boxy-border-subtle) !important;
+}
+
+html.light .border-b.border-\[\#1a1a1a\] {
+  border-bottom-color: var(--boxy-border-subtle) !important;
+}
+
+html.light .border-b.border-\[\#222\] {
+  border-bottom-color: var(--boxy-border) !important;
+}
+
+/* Light mode bg-white elements (hamburger lines, etc.) */
+html.light .bg-white {
+  background-color: var(--boxy-text) !important;
+}
+
+@theme inline {
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-mono);
+  }
+}

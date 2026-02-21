@@ -1,13 +1,6 @@
 import { createBrowserRouter } from "react-router";
 import { Layout } from "./components/Layout";
 import { Home } from "./pages/Home";
-import { ApproachPage } from "./pages/ApproachPage";
-import { PrivacySecurityPage } from "./pages/PrivacySecurityPage";
-import { UnixPhilosophyPage } from "./pages/UnixPhilosophyPage";
-import { AboutPage } from "./pages/AboutPage";
-import { HiringPage } from "./pages/HiringPage";
-import { JoinBetaPage } from "./pages/JoinBetaPage";
-import { NotFound } from "./pages/NotFound";
 
 export const router = createBrowserRouter([
   {
@@ -15,13 +8,55 @@ export const router = createBrowserRouter([
     Component: Layout,
     children: [
       { index: true, Component: Home },
-      { path: "approach", Component: ApproachPage },
-      { path: "privacy-security", Component: PrivacySecurityPage },
-      { path: "unix-philosophy", Component: UnixPhilosophyPage },
-      { path: "about", Component: AboutPage },
-      { path: "hiring", Component: HiringPage },
-      { path: "join-beta", Component: JoinBetaPage },
-      { path: "*", Component: NotFound },
+      {
+        path: "approach",
+        lazy: async () => {
+          const { ApproachPage } = await import("./pages/ApproachPage");
+          return { Component: ApproachPage };
+        },
+      },
+      {
+        path: "privacy-security",
+        lazy: async () => {
+          const { PrivacySecurityPage } = await import("./pages/PrivacySecurityPage");
+          return { Component: PrivacySecurityPage };
+        },
+      },
+      {
+        path: "unix-philosophy",
+        lazy: async () => {
+          const { UnixPhilosophyPage } = await import("./pages/UnixPhilosophyPage");
+          return { Component: UnixPhilosophyPage };
+        },
+      },
+      {
+        path: "about",
+        lazy: async () => {
+          const { AboutPage } = await import("./pages/AboutPage");
+          return { Component: AboutPage };
+        },
+      },
+      {
+        path: "hiring",
+        lazy: async () => {
+          const { HiringPage } = await import("./pages/HiringPage");
+          return { Component: HiringPage };
+        },
+      },
+      {
+        path: "join-beta",
+        lazy: async () => {
+          const { JoinBetaPage } = await import("./pages/JoinBetaPage");
+          return { Component: JoinBetaPage };
+        },
+      },
+      {
+        path: "*",
+        lazy: async () => {
+          const { NotFound } = await import("./pages/NotFound");
+          return { Component: NotFound };
+        },
+      },
     ],
   },
 ]);

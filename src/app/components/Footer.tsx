@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import boxyLogo from "@/assets/ab0ca6659c0f01db2ac08cab2cf2834447e30236.png";
+import boxyLogo from "@/assets/boxy-logo.png";
 
 export function Footer() {
   return (

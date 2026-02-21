@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router";
 import { Sun, Moon } from "lucide-react";
-import boxyLogo from "@/assets/ab0ca6659c0f01db2ac08cab2cf2834447e30236.png";
+import boxyLogo from "@/assets/boxy-logo.png";
 import { useTheme } from "./ThemeProvider";
 
 export function Navigation() {

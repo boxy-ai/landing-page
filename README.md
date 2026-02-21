@@ -1,10 +1,10 @@
 
-  # Meet Boxy
+# Meet Boxy
 
-  This is a code bundle for Meet Boxy. The original project is available at https://www.figma.com/design/d42FB0sjl4AevodsZEr4Vm/Website-for-AI-Agent.
+Landing page source for Boxy.
 
-  ## Running the code
+## Running the code
 
-  Run `npm i` to install the dependencies.
+Run `npm i` to install dependencies.
 
-  Run `npm run dev` to start the development server.
+Run `npm run dev` to start the development server.

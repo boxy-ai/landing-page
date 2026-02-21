@@ -48,7 +48,8 @@ export function Footer() {
               CONNECT
             </span>
             {[
-              { label: "Twitter / X", href: "https://x.com/boxyai" },
+              // Twitter / X account is currently not available.
+              // Restore the link once the account becomes available again.
               { label: "LinkedIn", href: "https://www.linkedin.com/company/108696137/" },
             ].map((item) => (
               <a

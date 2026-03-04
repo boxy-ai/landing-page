@@ -1,4 +1,3 @@
-
 # Meet Boxy
 
 Landing page source for Boxy.

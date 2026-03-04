@@ -5,6 +5,10 @@ Landing page source for Boxy.
 
 ## Running the code
 
-Run `npm i` to install dependencies.
+Run `mise trust` to trust the local `mise` configuration.
 
-Run `npm run dev` to start the development server.
+Run `mise install` to install the pinned toolchain.
+
+Run `pnpm install` to install dependencies.
+
+Run `pnpm dev` to start the development server.

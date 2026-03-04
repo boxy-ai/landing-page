@@ -3,6 +3,7 @@
 This guide is for teammates with design background and/or vibe-coding experience who want to ship changes safely with coding agents.
 
 Default setup in this repo:
+
 - Editor: VS Code
 - Agent: Codex extension
 - Git flow: feature branch -> PR into `main`
@@ -35,6 +36,7 @@ pnpm dev
 ## Environment Basics
 
 This repo pins tool versions with `.mise.toml`:
+
 - Node `24.14.0`
 - pnpm `10.30.3`
 
@@ -45,6 +47,7 @@ If you already have those exact versions locally, `mise` is still recommended so
 1. Open the repo folder in VS Code.
 2. Install and open the Codex extension.
 3. Start with a clear request that includes:
+
 - Goal
 - Design intent
 - Constraints
@@ -129,6 +132,7 @@ git push -u origin feat/short-description
 - Keep PRs focused; avoid mixing unrelated refactors.
 
 PR description should include:
+
 1. What changed
 2. Why it changed
 3. Validation run (commands)
@@ -164,6 +168,7 @@ git push -u origin feat/short-description
 ## Use Codex for More Than Coding
 
 Codex can also help with:
+
 - Explaining CI failures in plain language
 - Writing commit messages and PR descriptions
 - Summarizing diffs for reviewers
@@ -171,6 +176,7 @@ Codex can also help with:
 - Troubleshooting local setup issues
 
 Example asks:
+
 - "Explain why CI failed and give me the minimum fix."
 - "Draft a PR description from my staged changes."
 - "Summarize this branch in reviewer-friendly bullets."
@@ -179,6 +185,7 @@ Example asks:
 ## Troubleshooting
 
 ### `pnpm` or `node` version problems
+
 - Run `mise install` again.
 - Confirm versions:
 
@@ -188,10 +195,12 @@ pnpm -v
 ```
 
 ### Port already in use
+
 - `pnpm dev` may choose another port automatically.
 - If needed, stop other local servers and retry.
 
 ### Build fails after route changes
+
 - Check route consistency across:
   - `src/app/routes.ts`
   - `src/app/seo.ts`
@@ -199,6 +208,7 @@ pnpm -v
   - `scripts/prerender.mjs`
 
 ### Push or PR auth issues
+
 - Confirm your GitHub SSH/auth setup for this machine.
 - Ask Codex for step-by-step debugging of your exact error.
 

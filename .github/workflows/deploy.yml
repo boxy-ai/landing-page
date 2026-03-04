@@ -1,9 +1,9 @@
 name: Deploy to GitHub Pages
 
 on:
-  push:
-    branches: ["main"]
-  pull_request:
+  workflow_run:
+    workflows: ["CI"]
+    types: [completed]
     branches: ["main"]
   workflow_dispatch:
 
@@ -15,40 +15,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  quality:
-    name: Lint, Format, Typecheck
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v5
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10.30.3
-          run_install: false
-
-      - name: Setup Node
-        uses: actions/setup-node@v6
-        with:
-          node-version: 24.14.0
-          cache: "pnpm"
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Check formatting
-        run: pnpm run format:check
-
-      - name: Lint
-        run: pnpm run lint
-
-      - name: Typecheck
-        run: pnpm run typecheck
-
   deploy:
-    if: github.event_name != 'pull_request'
-    needs: quality
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -60,6 +28,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || github.sha }}
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4

@@ -1,3 +1,7 @@
-This project includes components from [shadcn/ui](https://ui.shadcn.com/) used under the [MIT license](https://github.com/shadcn-ui/ui/blob/main/LICENSE.md).
+# Attributions
 
-This project includes photos from [Unsplash](https://unsplash.com) used under the [Unsplash license](https://unsplash.com/license).
+This repository currently does not include third-party stock photos or copied UI kit components in source assets.
+
+Runtime icons are provided by [`lucide-react`](https://www.npmjs.com/package/lucide-react) under the ISC license.
+
+If third-party assets are added later, list each source and license in this file.

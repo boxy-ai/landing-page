@@ -88,5 +88,3 @@ export function getSeoForPath(pathname: string): RouteSeoMeta {
   const normalizedPath = normalizePath(pathname);
   return ROUTE_SEO[normalizedPath] ?? NOT_FOUND_SEO;
 }
-
-export const INDEXABLE_ROUTES = Object.values(ROUTE_SEO).map((route) => route.canonicalPath);

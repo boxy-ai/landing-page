@@ -21,7 +21,7 @@ export function TableOfContents({ items }: TableOfContentsProps) {
           setActiveId(visible[0].target.id);
         }
       },
-      { rootMargin: "-80px 0px -60% 0px", threshold: 0.1 }
+      { rootMargin: "-80px 0px -60% 0px", threshold: 0.1 },
     );
 
     items.forEach((item) => {

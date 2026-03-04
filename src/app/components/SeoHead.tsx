@@ -6,9 +6,7 @@ interface SeoHeadProps {
 }
 
 function upsertMeta(attribute: "name" | "property", key: string, content: string) {
-  let meta = document.head.querySelector(
-    `meta[${attribute}="${key}"]`,
-  ) as HTMLMetaElement | null;
+  let meta = document.head.querySelector(`meta[${attribute}="${key}"]`) as HTMLMetaElement | null;
 
   if (!meta) {
     meta = document.createElement("meta");
@@ -20,9 +18,7 @@ function upsertMeta(attribute: "name" | "property", key: string, content: string
 }
 
 function upsertCanonical(href: string) {
-  let canonical = document.head.querySelector(
-    'link[rel="canonical"]',
-  ) as HTMLLinkElement | null;
+  let canonical = document.head.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
 
   if (!canonical) {
     canonical = document.createElement("link");

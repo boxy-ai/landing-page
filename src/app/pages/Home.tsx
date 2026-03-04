@@ -161,7 +161,13 @@ const TESTIMONIALS = [
   },
 ];
 
-function BetaButton({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+function BetaButton({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
     <div className="relative group inline-block">
       <span
@@ -203,9 +209,8 @@ export function Home() {
               </h1>
 
               <p className="font-mono text-[15px] sm:text-[16px] text-[#888] leading-[1.8] max-w-[600px] mb-10">
-                Boxy ingests your entire digital context — messages, emails,
-                calendar, documents — to anticipate your needs and generate
-                actionable proposals. You just delegate.
+                Boxy ingests your entire digital context — messages, emails, calendar, documents —
+                to anticipate your needs and generate actionable proposals. You just delegate.
               </p>
 
               <div className="flex flex-wrap items-center gap-4">
@@ -236,14 +241,12 @@ export function Home() {
                 <span className="text-[#888]">The Proposal Card.</span>
               </h2>
               <p className="font-mono text-[14px] text-[#888] leading-[1.8] mb-6">
-                Boxy distills everything into a single, actionable unit. Each
-                proposal contains the detected context, a generated action
-                plan, and two choices: dismiss or delegate.
+                Boxy distills everything into a single, actionable unit. Each proposal contains the
+                detected context, a generated action plan, and two choices: dismiss or delegate.
               </p>
               <p className="font-mono text-[14px] text-[#666] leading-[1.8]">
-                Delegate means Boxy executes. It drafts the email, schedules
-                the meeting, files the document. You stay focused on what
-                matters most.
+                Delegate means Boxy executes. It drafts the email, schedules the meeting, files the
+                document. You stay focused on what matters most.
               </p>
             </div>
 
@@ -268,9 +271,7 @@ export function Home() {
                     </div>
                   </div>
                   <div className="px-5 py-3 border-b border-[#1a1a1a]">
-                    <div className="font-mono text-[11px] text-[#666] mb-1">
-                      Subject
-                    </div>
+                    <div className="font-mono text-[11px] text-[#666] mb-1">Subject</div>
                     <div className="font-mono text-[16px] text-white">
                       {currentProposal.subject}
                     </div>
@@ -291,9 +292,7 @@ export function Home() {
                     </div>
                   </div>
                   <div className="px-5 py-2 border-t border-[#1a1a1a] flex items-center justify-between">
-                    <span className="font-mono text-[11px] text-[#555]">
-                      Confidence
-                    </span>
+                    <span className="font-mono text-[11px] text-[#555]">Confidence</span>
                     <div className="flex items-center gap-2">
                       <div className="w-24 h-1.5 bg-[#1a1a1a] overflow-hidden">
                         <div
@@ -337,9 +336,8 @@ export function Home() {
             What makes us different
           </h2>
           <p className="font-mono text-[14px] text-[#888] leading-[1.8] max-w-[700px] mb-12">
-            We don't bolt AI onto existing workflows. We rethink the entire
-            relationship between you and your digital life — starting from
-            privacy, context, and proactive intelligence.
+            We don't bolt AI onto existing workflows. We rethink the entire relationship between you
+            and your digital life — starting from privacy, context, and proactive intelligence.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -354,9 +352,7 @@ export function Home() {
                   style={{ color: feature.accent }}
                   className="mb-5"
                 />
-                <h3 className="font-mono text-[16px] text-white mb-3">
-                  {feature.title}
-                </h3>
+                <h3 className="font-mono text-[16px] text-white mb-3">{feature.title}</h3>
                 <p className="font-mono text-[14px] text-[#888] leading-[1.8]">
                   {feature.description}
                 </p>
@@ -376,13 +372,14 @@ export function Home() {
             50+ integrations, one context
           </h2>
           <p className="font-mono text-[14px] text-[#888] leading-[1.8] max-w-[600px] mb-12">
-            Boxy connects to the platforms you already use — both through APIs
-            and our proprietary GUI agents for walled-garden platforms.
+            Boxy connects to the platforms you already use — both through APIs and our proprietary
+            GUI agents for walled-garden platforms.
           </p>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
             {INTEGRATIONS.map((item) => {
-              const resolvedColor = theme === "light" && item.lightColor ? item.lightColor : item.color;
+              const resolvedColor =
+                theme === "light" && item.lightColor ? item.lightColor : item.color;
               return (
                 <div
                   key={item.name}
@@ -394,11 +391,7 @@ export function Home() {
                       background: `${resolvedColor}10`,
                     }}
                   >
-                    <item.icon
-                      size={22}
-                      strokeWidth={1.5}
-                      style={{ color: resolvedColor }}
-                    />
+                    <item.icon size={22} strokeWidth={1.5} style={{ color: resolvedColor }} />
                   </div>
                   <span className="font-mono text-[12px] text-[#888] text-center group-hover:text-white transition-colors">
                     {item.name}
@@ -409,11 +402,7 @@ export function Home() {
             {/* "More" card */}
             <div className="border border-[#1a1a1a] border-dashed p-4 flex flex-col items-center gap-3 hover:border-[#333] transition-colors group">
               <div className="w-12 h-12 border border-[#222] border-dashed flex items-center justify-center group-hover:border-[#444] transition-colors">
-                <MoreHorizontal
-                  size={22}
-                  strokeWidth={1.5}
-                  className="text-[#555]"
-                />
+                <MoreHorizontal size={22} strokeWidth={1.5} className="text-[#555]" />
               </div>
               <span className="font-mono text-[12px] text-[#555] text-center group-hover:text-[#888] transition-colors">
                 40+ more
@@ -433,9 +422,8 @@ export function Home() {
             See what Boxy can do
           </h2>
           <p className="font-mono text-[14px] text-[#888] leading-[1.8] max-w-[700px] mb-12">
-            Boxy handles the requests you don't even realize you have. We
-            anticipate needs and proactively help — rather than sitting idle
-            and waiting for a prompt.
+            Boxy handles the requests you don't even realize you have. We anticipate needs and
+            proactively help — rather than sitting idle and waiting for a prompt.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -445,38 +433,22 @@ export function Home() {
                 className="border border-[#1a1a1a] hover:border-[#333] transition-colors"
               >
                 <div className="px-6 py-4 border-b border-[#1a1a1a] flex items-center justify-between">
-                  <span className="font-mono text-[15px] text-white">
-                    {uc.title}
-                  </span>
+                  <span className="font-mono text-[15px] text-white">{uc.title}</span>
                   <BellRing size={16} className="text-[#FF5A00]" />
                 </div>
                 <div className="px-6 py-5">
                   <div className="flex items-start gap-3 mb-4">
-                    <Search
-                      size={16}
-                      className="text-[#00F0FF] mt-0.5 shrink-0"
-                    />
+                    <Search size={16} className="text-[#00F0FF] mt-0.5 shrink-0" />
                     <div>
-                      <span className="font-mono text-[11px] text-[#666] block mb-1">
-                        Trigger
-                      </span>
-                      <p className="font-mono text-[13px] text-[#888]">
-                        {uc.trigger}
-                      </p>
+                      <span className="font-mono text-[11px] text-[#666] block mb-1">Trigger</span>
+                      <p className="font-mono text-[13px] text-[#888]">{uc.trigger}</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <Zap
-                      size={16}
-                      className="text-[#FF5A00] mt-0.5 shrink-0"
-                    />
+                    <Zap size={16} className="text-[#FF5A00] mt-0.5 shrink-0" />
                     <div>
-                      <span className="font-mono text-[11px] text-[#666] block mb-1">
-                        Action
-                      </span>
-                      <p className="font-mono text-[13px] text-[#888] leading-[1.7]">
-                        {uc.action}
-                      </p>
+                      <span className="font-mono text-[11px] text-[#666] block mb-1">Action</span>
+                      <p className="font-mono text-[13px] text-[#888] leading-[1.7]">{uc.action}</p>
                     </div>
                   </div>
                 </div>
@@ -500,9 +472,9 @@ export function Home() {
                 <span className="text-[#888]">leaves the box.</span>
               </h2>
               <p className="font-mono text-[14px] text-[#888] leading-[1.8] mb-6">
-                PII like emails and device IDs are masked inside the Box before
-                anything reaches the cloud. Non-sensitive content passes through
-                untouched. The AI understands intent, not identity.
+                PII like emails and device IDs are masked inside the Box before anything reaches the
+                cloud. Non-sensitive content passes through untouched. The AI understands intent,
+                not identity.
               </p>
               <Link
                 to="/privacy-security"
@@ -517,14 +489,10 @@ export function Home() {
             <div className="border border-[#222] bg-[#0a0a0a] overflow-hidden">
               <div className="flex border-b border-[#222]">
                 <div className="flex-1 px-4 py-2 border-r border-[#222]">
-                  <span className="font-mono text-[11px] text-[#ef4444]">
-                    Raw input
-                  </span>
+                  <span className="font-mono text-[11px] text-[#ef4444]">Raw input</span>
                 </div>
                 <div className="flex-1 px-4 py-2">
-                  <span className="font-mono text-[11px] text-[#10b981]">
-                    After obfuscation
-                  </span>
+                  <span className="font-mono text-[11px] text-[#10b981]">After obfuscation</span>
                 </div>
               </div>
               <div className="grid grid-cols-2">
@@ -537,13 +505,9 @@ export function Home() {
                 </div>
                 <div className="font-mono text-[12px] p-4 space-y-1">
                   <div className="text-[#10b981]">from: [USER_A_EMAIL]</div>
-                  <div className="text-[#888]">
-                    msg: "Let's open a company in SF"
-                  </div>
+                  <div className="text-[#888]">msg: "Let's open a company in SF"</div>
                   <div className="text-[#10b981]">to: [USER_B_EMAIL]</div>
-                  <div className="text-[#888]">
-                    location: "San Francisco, CA"
-                  </div>
+                  <div className="text-[#888]">location: "San Francisco, CA"</div>
                   <div className="text-[#10b981]">device: [DEVICE_HASH_A]</div>
                 </div>
               </div>
@@ -552,9 +516,7 @@ export function Home() {
                   Obfuscation layer v3.1 — runs inside the Box
                 </span>
                 <div className="flex items-center gap-3">
-                  <span className="font-mono text-[11px] text-[#10b981]">
-                    Inside the Box
-                  </span>
+                  <span className="font-mono text-[11px] text-[#10b981]">Inside the Box</span>
                 </div>
               </div>
             </div>
@@ -568,9 +530,7 @@ export function Home() {
           <span className="font-mono text-[12px] text-[#444] block mb-4 tracking-wide">
             BETA FEEDBACK
           </span>
-          <h2 className="font-mono text-[24px] md:text-[32px] text-white mb-12">
-            From the field
-          </h2>
+          <h2 className="font-mono text-[24px] md:text-[32px] text-white mb-12">From the field</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {TESTIMONIALS.map((t) => (
@@ -587,12 +547,8 @@ export function Home() {
                   </p>
                 </div>
                 <div className="border-t border-[#1a1a1a] pt-4">
-                  <div className="font-mono text-[13px] text-white">
-                    {t.author}
-                  </div>
-                  <div className="font-mono text-[12px] text-[#555] mt-1">
-                    {t.role}
-                  </div>
+                  <div className="font-mono text-[13px] text-white">{t.author}</div>
+                  <div className="font-mono text-[12px] text-[#555] mt-1">{t.role}</div>
                 </div>
               </div>
             ))}
@@ -603,9 +559,7 @@ export function Home() {
       {/* ============ EXPLORE SECTIONS ============ */}
       <section className="py-20 border-t border-[#1a1a1a]">
         <div className="max-w-[1200px] mx-auto px-5 md:px-8 w-full">
-          <h2 className="font-mono text-[24px] md:text-[32px] text-white mb-12">
-            Go deeper
-          </h2>
+          <h2 className="font-mono text-[24px] md:text-[32px] text-white mb-12">Go deeper</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
               {
@@ -638,9 +592,7 @@ export function Home() {
                 >
                   {item.title}
                 </h3>
-                <p className="font-mono text-[14px] text-[#888] leading-[1.8] mb-6">
-                  {item.desc}
-                </p>
+                <p className="font-mono text-[14px] text-[#888] leading-[1.8] mb-6">{item.desc}</p>
                 <div className="flex items-center gap-2 font-mono text-[13px] text-[#666] group-hover:text-white transition-colors">
                   Read more
                   <ChevronRight size={16} />
@@ -659,13 +611,10 @@ export function Home() {
               Ready to think inside the Box?
             </h2>
             <p className="font-mono text-[14px] text-[#888] mb-8 max-w-[500px] mx-auto">
-              Join our closed beta. We onboard new users weekly based on
-              use-case fit.
+              Join our closed beta. We onboard new users weekly based on use-case fit.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <BetaButton className="px-8 py-4">
-                Join the Beta
-              </BetaButton>
+              <BetaButton className="px-8 py-4">Join the Beta</BetaButton>
               <Link
                 to="/hiring"
                 className="inline-flex items-center gap-2 font-mono text-[14px] px-8 py-4 border border-[#333] text-[#888] hover:border-[#FF5A00] hover:text-[#FF5A00] transition-all"

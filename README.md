@@ -11,3 +11,9 @@ Run `mise install` to install the pinned toolchain.
 Run `pnpm install` to install dependencies.
 
 Run `pnpm dev` to start the development server.
+
+Run `pnpm lint` to lint the project with `oxlint`.
+
+Run `pnpm format` to format the project with `oxfmt`.
+
+Run `pnpm typecheck` to run TypeScript checks.

@@ -71,9 +71,9 @@ export function HiringPage() {
             <span className="text-[#888]">personal intelligence.</span>
           </h1>
           <p className="font-mono text-[15px] text-[#888] leading-[1.8] max-w-[700px]">
-            Backed by tier-one VCs, we are a small, focused team with a remote-first culture.
-            We are looking for exceptional people who share our belief that AI
-            should be private, deterministic, and genuinely useful.
+            Backed by tier-one VCs, we are a small, focused team with a remote-first culture. We are
+            looking for exceptional people who share our belief that AI should be private,
+            deterministic, and genuinely useful.
           </p>
         </div>
 
@@ -81,21 +81,17 @@ export function HiringPage() {
         <div className="py-12 border-b border-[#1a1a1a]">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="border border-[#1a1a1a] p-6">
-              <span className="font-mono text-[14px] text-[#FF5A00] block mb-3">
-                Remote-first
-              </span>
+              <span className="font-mono text-[14px] text-[#FF5A00] block mb-3">Remote-first</span>
               <p className="font-mono text-[13px] text-[#888] leading-[1.8]">
-                Work from anywhere. We optimize for async communication and deep
-                work over co-location.
+                Work from anywhere. We optimize for async communication and deep work over
+                co-location.
               </p>
             </div>
             <div className="border border-[#1a1a1a] p-6">
-              <span className="font-mono text-[14px] text-[#00F0FF] block mb-3">
-                Ship weekly
-              </span>
+              <span className="font-mono text-[14px] text-[#00F0FF] block mb-3">Ship weekly</span>
               <p className="font-mono text-[13px] text-[#888] leading-[1.8]">
-                The best argument is working code. Small team, fast iterations,
-                and real impact every week.
+                The best argument is working code. Small team, fast iterations, and real impact
+                every week.
               </p>
             </div>
             <div className="border border-[#1a1a1a] p-6">
@@ -103,8 +99,8 @@ export function HiringPage() {
                 Mission-driven
               </span>
               <p className="font-mono text-[13px] text-[#888] leading-[1.8]">
-                We build personal intelligence that respects user privacy. This
-                is the entire product thesis.
+                We build personal intelligence that respects user privacy. This is the entire
+                product thesis.
               </p>
             </div>
           </div>
@@ -112,9 +108,7 @@ export function HiringPage() {
 
         {/* Open Roles */}
         <div className="py-16">
-          <h2 className="font-mono text-[24px] md:text-[28px] text-white mb-3">
-            Open positions
-          </h2>
+          <h2 className="font-mono text-[24px] md:text-[28px] text-white mb-3">Open positions</h2>
           <p className="font-mono text-[14px] text-[#888] mb-10">
             {OPEN_ROLES.length} roles currently open. All positions are remote.
           </p>
@@ -128,9 +122,7 @@ export function HiringPage() {
                 <summary className="px-6 py-5 cursor-pointer list-none">
                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
                     <div>
-                      <h3 className="font-mono text-[15px] text-white mb-1">
-                        {role.title}
-                      </h3>
+                      <h3 className="font-mono text-[15px] text-white mb-1">{role.title}</h3>
                       <div className="flex flex-wrap gap-3 font-mono text-[12px] text-[#666]">
                         <span>{role.team}</span>
                         <span className="text-[#333]">/</span>
@@ -210,8 +202,8 @@ export function HiringPage() {
               Do not see your role listed?
             </h3>
             <p className="font-mono text-[14px] text-[#888] mb-6 max-w-[500px] mx-auto">
-              We are always interested in hearing from exceptional people.
-              Send us a note about what you would bring to the team.
+              We are always interested in hearing from exceptional people. Send us a note about what
+              you would bring to the team.
             </p>
             <a
               href="mailto:john@boxy-ai.com"

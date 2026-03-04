@@ -48,9 +48,8 @@ export function AboutPage() {
             <span className="text-[#888]">for everyone.</span>
           </h1>
           <p className="font-mono text-[15px] text-[#888] leading-[1.8] max-w-[800px]">
-            We are a team of systems engineers, ML researchers, and product
-            builders who believe AI should work for individuals — not the
-            other way around. Founded in late 2024.
+            We are a team of systems engineers, ML researchers, and product builders who believe AI
+            should work for individuals — not the other way around. Founded in late 2024.
           </p>
         </div>
 
@@ -61,20 +60,17 @@ export function AboutPage() {
           <div className="flex-1 min-w-0">
             {/* ============ WHY WE EXIST ============ */}
             <div id="why-we-exist" className="py-16 border-b border-[#1a1a1a]">
-              <h2 className="font-mono text-[24px] md:text-[28px] text-white mb-8">
-                Why we exist
-              </h2>
+              <h2 className="font-mono text-[24px] md:text-[28px] text-white mb-8">Why we exist</h2>
               <div className="max-w-[800px]">
                 <p className="font-mono text-[15px] text-[#888] leading-[1.9] mb-6">
-                  The current generation of AI assistants is reactive. They wait
-                  for prompts, require you to context-switch, and add yet another
-                  tool to an already overloaded digital stack.
+                  The current generation of AI assistants is reactive. They wait for prompts,
+                  require you to context-switch, and add yet another tool to an already overloaded
+                  digital stack.
                 </p>
                 <p className="font-mono text-[15px] text-[#888] leading-[1.9]">
-                  We believe the next paradigm is not conversational — it is
-                  anticipatory. An AI that truly understands you observes your
-                  digital context and synthesizes actionable proposals before you
-                  even recognize the need.
+                  We believe the next paradigm is not conversational — it is anticipatory. An AI
+                  that truly understands you observes your digital context and synthesizes
+                  actionable proposals before you even recognize the need.
                 </p>
               </div>
             </div>
@@ -86,11 +82,10 @@ export function AboutPage() {
               </h2>
               <div className="max-w-[800px] mb-10">
                 <p className="font-mono text-[15px] text-[#888] leading-[1.9]">
-                  We believe in artificial personal intelligence — AI that is
-                  narrow in scope but deep in understanding. For the first time,
-                  individuals can aggregate their own data and leverage
-                  intelligence for themselves, rather than relying on platforms
-                  to provide value.
+                  We believe in artificial personal intelligence — AI that is narrow in scope but
+                  deep in understanding. For the first time, individuals can aggregate their own
+                  data and leverage intelligence for themselves, rather than relying on platforms to
+                  provide value.
                 </p>
               </div>
 
@@ -100,9 +95,7 @@ export function AboutPage() {
                     key={value.title}
                     className="border border-[#1a1a1a] p-6 hover:border-[#333] transition-colors"
                   >
-                    <h3 className="font-mono text-[15px] text-white mb-3">
-                      {value.title}
-                    </h3>
+                    <h3 className="font-mono text-[15px] text-white mb-3">{value.title}</h3>
                     <p className="font-mono text-[14px] text-[#888] leading-[1.8]">
                       {value.description}
                     </p>
@@ -113,9 +106,7 @@ export function AboutPage() {
 
             {/* ============ HOW WE BUILD ============ */}
             <div id="how-we-build" className="py-16 border-b border-[#1a1a1a]">
-              <h2 className="font-mono text-[24px] md:text-[28px] text-white mb-8">
-                How we build
-              </h2>
+              <h2 className="font-mono text-[24px] md:text-[28px] text-white mb-8">How we build</h2>
               <div className="max-w-[800px] mb-10">
                 <p className="font-mono text-[15px] text-[#888] leading-[1.9] mb-6">
                   Boxy is built on three pillars:
@@ -128,9 +119,8 @@ export function AboutPage() {
                     01 — Local-first processing
                   </span>
                   <p className="font-mono text-[14px] text-[#888] leading-[1.8]">
-                    Everything that can happen inside the Box, happens inside the
-                    Box. NER, obfuscation, and embedding all run locally. Raw data
-                    never leaves your machine.
+                    Everything that can happen inside the Box, happens inside the Box. NER,
+                    obfuscation, and embedding all run locally. Raw data never leaves your machine.
                   </p>
                 </div>
                 <div className="border border-[#00F0FF]/20 bg-[#00F0FF]/5 p-6">
@@ -138,9 +128,8 @@ export function AboutPage() {
                     02 — Deterministic agents
                   </span>
                   <p className="font-mono text-[14px] text-[#888] leading-[1.8]">
-                    Our agents follow pre-trained manifests. Every action is
-                    recorded, reproducible, and auditable. No hallucination and
-                    no guessing.
+                    Our agents follow pre-trained manifests. Every action is recorded, reproducible,
+                    and auditable. No hallucination and no guessing.
                   </p>
                 </div>
                 <div className="border border-[#10b981]/20 bg-[#10b981]/5 p-6">
@@ -148,8 +137,8 @@ export function AboutPage() {
                     03 — Privacy-safe inference
                   </span>
                   <p className="font-mono text-[14px] text-[#888] leading-[1.8]">
-                    When cloud computation is necessary, we operate on obfuscated
-                    data only. The math works without the metadata.
+                    When cloud computation is necessary, we operate on obfuscated data only. The
+                    math works without the metadata.
                   </p>
                 </div>
               </div>

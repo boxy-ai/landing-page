@@ -10,13 +10,11 @@ export function Footer() {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <img src={boxyLogo} alt="Boxy" className="w-7 h-7" />
-              <span className="font-mono text-[13px] text-white">
-                Boxy
-              </span>
+              <span className="font-mono text-[13px] text-white">Boxy</span>
             </div>
             <p className="font-mono text-[13px] text-[#555] leading-[1.8] max-w-[280px]">
-              Proactive AI that ingests your digital context to anticipate needs
-              and act on your behalf. Everything happens inside the Box.
+              Proactive AI that ingests your digital context to anticipate needs and act on your
+              behalf. Everything happens inside the Box.
             </p>
           </div>
 

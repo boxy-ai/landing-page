@@ -9,7 +9,6 @@ import {
   MousePointer,
   Keyboard,
   ScrollText,
-  Zap,
   Shield,
   DollarSign,
   Clock,
@@ -45,7 +44,7 @@ const PIPELINE_STEPS = [
     description: "High-fidelity personal data, collected at the source.",
     mockData: [
       { type: "email", content: 'Subject: "Q2 budget review" — from: CFO' },
-      { type: "chat", content: "WhatsApp: \"Let's finalize the SF office lease\"" },
+      { type: "chat", content: 'WhatsApp: "Let\'s finalize the SF office lease"' },
       { type: "calendar", content: "Meeting: Board sync — tomorrow 2pm" },
       { type: "social", content: 'Twitter DM: "Interested in your product"' },
     ],
@@ -134,9 +133,8 @@ export function ApproachPage() {
             <span className="text-[#888]">a real AI agent.</span>
           </h1>
           <p className="font-mono text-[15px] text-[#888] leading-[1.8] max-w-[700px]">
-            We believe there are two fundamental prerequisites that must be
-            solved before an AI agent can meaningfully act on your behalf:
-            deep context and reliable capability.
+            We believe there are two fundamental prerequisites that must be solved before an AI
+            agent can meaningfully act on your behalf: deep context and reliable capability.
           </p>
         </div>
 
@@ -151,17 +149,14 @@ export function ApproachPage() {
                 <span className="font-mono text-[14px] px-3 py-1 border border-[#FF5A00] text-[#FF5A00]">
                   01
                 </span>
-                <h2 className="font-mono text-[24px] md:text-[32px] text-white">
-                  Context
-                </h2>
+                <h2 className="font-mono text-[24px] md:text-[32px] text-white">Context</h2>
               </div>
 
               <div className="max-w-[800px]">
                 <p className="font-mono text-[15px] text-[#888] leading-[1.9] mb-8">
-                  Most AI assistants only access data available through APIs — your
-                  email, calendar, maybe Slack. But this is a fraction of who you
-                  are. The most valuable personal data is locked inside walled
-                  gardens that don't offer API access.
+                  Most AI assistants only access data available through APIs — your email, calendar,
+                  maybe Slack. But this is a fraction of who you are. The most valuable personal
+                  data is locked inside walled gardens that don't offer API access.
                 </p>
               </div>
 
@@ -199,31 +194,32 @@ export function ApproachPage() {
 
               <div className="max-w-[800px] mb-12">
                 <p className="font-mono text-[15px] text-[#888] leading-[1.9] mb-6">
-                  Twitter direct messages, interactions across all platforms,
-                  Instagram direct messages — all of this personal data is scattered
-                  across platforms. When combined with data that can be granted via
-                  APIs (your Gmail, Calendar, Slack), we can finally construct a user
-                  profile with the depth for an agent to truly understand who you
-                  are, what you want, and what you may need tomorrow or next week.
+                  Twitter direct messages, interactions across all platforms, Instagram direct
+                  messages — all of this personal data is scattered across platforms. When combined
+                  with data that can be granted via APIs (your Gmail, Calendar, Slack), we can
+                  finally construct a user profile with the depth for an agent to truly understand
+                  who you are, what you want, and what you may need tomorrow or next week.
                 </p>
                 <p className="font-mono text-[15px] text-[#888] leading-[1.9] mb-6">
-                  This allows agents to proactively prepare rather than waiting for
-                  you to give a request.
+                  This allows agents to proactively prepare rather than waiting for you to give a
+                  request.
                 </p>
               </div>
 
               {/* Digital footprint callout */}
-              <div id="digital-footprint" className="border border-[#FF5A00]/20 bg-[#FF5A00]/5 p-6 md:p-8 mb-12 max-w-[800px]">
+              <div
+                id="digital-footprint"
+                className="border border-[#FF5A00]/20 bg-[#FF5A00]/5 p-6 md:p-8 mb-12 max-w-[800px]"
+              >
                 <p className="font-mono text-[15px] text-[#FF5A00] leading-[1.8] mb-4">
-                  We're not just obtaining data from easily accessible APIs. We're
-                  obtaining the entire digital footprint of a user.
+                  We're not just obtaining data from easily accessible APIs. We're obtaining the
+                  entire digital footprint of a user.
                 </p>
                 <p className="font-mono text-[14px] text-[#888] leading-[1.8]">
-                  For the first time in the internet era, we can aggregate our own
-                  data and leverage it to provide value to ourselves — rather than
-                  relying on platforms to act nicely and give us this data back.
-                  Intelligence has always flowed from users to platforms. We're
-                  reversing that flow.
+                  For the first time in the internet era, we can aggregate our own data and leverage
+                  it to provide value to ourselves — rather than relying on platforms to act nicely
+                  and give us this data back. Intelligence has always flowed from users to
+                  platforms. We're reversing that flow.
                 </p>
               </div>
 
@@ -233,10 +229,9 @@ export function ApproachPage() {
                   The Personal Intelligence Pipeline
                 </h3>
                 <p className="font-mono text-[14px] text-[#888] leading-[1.8] mb-8 max-w-[700px]">
-                  Just like companies build pipelines for business intelligence, we
-                  build a personal intelligence pipeline — one that everyone should
-                  have and will have. It processes decades of data you've created
-                  across all platforms.
+                  Just like companies build pipelines for business intelligence, we build a personal
+                  intelligence pipeline — one that everyone should have and will have. It processes
+                  decades of data you've created across all platforms.
                 </p>
               </div>
 
@@ -257,9 +252,7 @@ export function ApproachPage() {
                             <step.icon size={20} style={{ color: step.color }} />
                           </div>
                           <div>
-                            <h4 className="font-mono text-[15px] text-white">
-                              {step.title}
-                            </h4>
+                            <h4 className="font-mono text-[15px] text-white">{step.title}</h4>
                             <span className="font-mono text-[12px] text-[#666]">
                               {step.subtitle}
                             </span>
@@ -277,10 +270,7 @@ export function ApproachPage() {
                         </span>
                         <div className="space-y-2">
                           {step.mockData.map((d, i) => (
-                            <div
-                              key={i}
-                              className="flex items-start gap-2 font-mono text-[12px]"
-                            >
+                            <div key={i} className="flex items-start gap-2 font-mono text-[12px]">
                               <span className="text-[#444] shrink-0 mt-0.5">{">"}</span>
                               <span className="text-[#888]">{d.content}</span>
                             </div>
@@ -315,19 +305,16 @@ export function ApproachPage() {
                 <span className="font-mono text-[14px] px-3 py-1 border border-[#00F0FF] text-[#00F0FF]">
                   02
                 </span>
-                <h2 className="font-mono text-[24px] md:text-[32px] text-white">
-                  Capability
-                </h2>
+                <h2 className="font-mono text-[24px] md:text-[32px] text-white">Capability</h2>
               </div>
 
               <div className="max-w-[800px] mb-12">
                 <p className="font-mono text-[15px] text-[#888] leading-[1.9] mb-6">
-                  A personal assistant agent must be able to operate software
-                  interfaces on your behalf. Due to the limitations of APIs, the
-                  things agents can do are by nature limited. GUI agents — agents
-                  that can interact with graphical interfaces — are always needed to
-                  fill the gap. In most cases, they are the only way to get
-                  things done.
+                  A personal assistant agent must be able to operate software interfaces on your
+                  behalf. Due to the limitations of APIs, the things agents can do are by nature
+                  limited. GUI agents — agents that can interact with graphical interfaces — are
+                  always needed to fill the gap. In most cases, they are the only way to get things
+                  done.
                 </p>
                 <p className="font-mono text-[15px] text-[#888] leading-[1.9]">
                   But the current state of GUI agents is fundamentally broken.
@@ -341,9 +328,8 @@ export function ApproachPage() {
                 </h3>
                 <div className="border border-[#1a1a1a] p-6 md:p-8 mb-6">
                   <p className="font-mono text-[14px] text-[#888] leading-[1.8] mb-6">
-                    Most GUI agents today use a vision-based approach. They take a
-                    screenshot, feed it to a vision model, and get back a
-                    low-level action to execute:
+                    Most GUI agents today use a vision-based approach. They take a screenshot, feed
+                    it to a vision model, and get back a low-level action to execute:
                   </p>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
                     {[
@@ -357,18 +343,15 @@ export function ApproachPage() {
                         className="border border-[#222] p-3 flex items-center gap-2"
                       >
                         <action.icon size={18} className="text-[#666]" />
-                        <span className="font-mono text-[13px] text-[#888]">
-                          {action.label}
-                        </span>
+                        <span className="font-mono text-[13px] text-[#888]">{action.label}</span>
                       </div>
                     ))}
                   </div>
                   <p className="font-mono text-[14px] text-[#888] leading-[1.8]">
-                    After each granular step, the agent takes a new screenshot and
-                    asks the vision model what to do next. This approach is general,
-                    but comes with massive trade-offs in cost, latency, and
-                    reliability — especially for long-horizon tasks where context
-                    explodes and errors compound.
+                    After each granular step, the agent takes a new screenshot and asks the vision
+                    model what to do next. This approach is general, but comes with massive
+                    trade-offs in cost, latency, and reliability — especially for long-horizon tasks
+                    where context explodes and errors compound.
                   </p>
                 </div>
               </div>
@@ -419,9 +402,7 @@ export function ApproachPage() {
                   ].map((row, i) => (
                     <div
                       key={row.metric}
-                      className={`grid grid-cols-3 ${
-                        i < 4 ? "border-b border-[#1a1a1a]" : ""
-                      }`}
+                      className={`grid grid-cols-3 ${i < 4 ? "border-b border-[#1a1a1a]" : ""}`}
                     >
                       <div className="p-4 border-r border-[#1a1a1a]">
                         <span className="font-mono text-[13px] text-white">{row.metric}</span>
@@ -439,35 +420,31 @@ export function ApproachPage() {
 
               {/* Three pillars */}
               <div id="three-things" className="mb-12">
-                <h3 className="font-mono text-[16px] text-white mb-6">
-                  Three things that matter
-                </h3>
+                <h3 className="font-mono text-[16px] text-white mb-6">Three things that matter</h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div className="border border-[#1a1a1a] p-6 hover:border-[#333] transition-colors">
                     <Clock size={28} className="text-[#FF5A00] mb-4" />
                     <h4 className="font-mono text-[15px] text-white mb-3">Speed</h4>
                     <p className="font-mono text-[14px] text-[#888] leading-[1.8]">
-                      If you take 30 seconds to find a contact and draft a message,
-                      the agent should take 3 seconds — not 3 minutes. Actions
-                      must be faster than doing it yourself.
+                      If you take 30 seconds to find a contact and draft a message, the agent should
+                      take 3 seconds — not 3 minutes. Actions must be faster than doing it yourself.
                     </p>
                   </div>
                   <div className="border border-[#1a1a1a] p-6 hover:border-[#333] transition-colors">
                     <Shield size={28} className="text-[#10b981] mb-4" />
                     <h4 className="font-mono text-[15px] text-white mb-3">Reliability</h4>
                     <p className="font-mono text-[14px] text-[#888] leading-[1.8]">
-                      When you want to send a message, you need 100% confidence it
-                      will be sent with the exact content you consented to.
-                      Deterministic actions build trust over time.
+                      When you want to send a message, you need 100% confidence it will be sent with
+                      the exact content you consented to. Deterministic actions build trust over
+                      time.
                     </p>
                   </div>
                   <div className="border border-[#1a1a1a] p-6 hover:border-[#333] transition-colors">
                     <DollarSign size={28} className="text-[#00F0FF] mb-4" />
                     <h4 className="font-mono text-[15px] text-white mb-3">Cost</h4>
                     <p className="font-mono text-[14px] text-[#888] leading-[1.8]">
-                      If it costs $3 to send an email via a GUI agent, adoption will
-                      be zero. Our pre-trained agents drop the cost to effectively
-                      nothing.
+                      If it costs $3 to send an email via a GUI agent, adoption will be zero. Our
+                      pre-trained agents drop the cost to effectively nothing.
                     </p>
                   </div>
                 </div>
@@ -475,11 +452,10 @@ export function ApproachPage() {
 
               <div className="max-w-[800px]">
                 <p className="font-mono text-[15px] text-[#888] leading-[1.9]">
-                  We have pre-trained our GUI agents to execute deterministic
-                  actions on specific platforms. Instead of guessing what to click
-                  next, our agents know exactly what to do — every time. This makes
-                  actions fast, reliable, and virtually free. It builds trust so
-                  users can gradually delegate more sensitive tasks over time.
+                  We have pre-trained our GUI agents to execute deterministic actions on specific
+                  platforms. Instead of guessing what to click next, our agents know exactly what to
+                  do — every time. This makes actions fast, reliable, and virtually free. It builds
+                  trust so users can gradually delegate more sensitive tasks over time.
                 </p>
               </div>
             </div>

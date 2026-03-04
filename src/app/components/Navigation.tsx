@@ -30,15 +30,17 @@ export function Navigation() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 h-16 border-b transition-all duration-200 ${
-        scrolled
-          ? "bg-[#0a0a0a]/95 backdrop-blur-sm border-[#333]"
-          : "bg-[#0a0a0a] border-[#222]"
+        scrolled ? "bg-[#0a0a0a]/95 backdrop-blur-sm border-[#333]" : "bg-[#0a0a0a] border-[#222]"
       }`}
     >
       <div className="h-full max-w-[1200px] mx-auto px-5 md:px-8 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3 group">
-          <img src={boxyLogo} alt="Boxy" className="w-8 h-8 opacity-90 group-hover:opacity-100 transition-opacity" />
+          <img
+            src={boxyLogo}
+            alt="Boxy"
+            className="w-8 h-8 opacity-90 group-hover:opacity-100 transition-opacity"
+          />
           <span className="font-mono text-[18px] tracking-wide text-white hidden sm:block">
             Boxy
           </span>
@@ -51,9 +53,7 @@ export function Navigation() {
               key={link.path}
               to={link.path}
               className={`font-mono text-[13px] transition-colors hover:text-[#00F0FF] ${
-                location.pathname === link.path
-                  ? "text-[#00F0FF]"
-                  : "text-[#999]"
+                location.pathname === link.path ? "text-[#00F0FF]" : "text-[#999]"
               }`}
             >
               {link.label}
@@ -95,9 +95,15 @@ export function Navigation() {
             onClick={() => setMobileOpen(!mobileOpen)}
             className="lg:hidden flex flex-col gap-1.5 p-2"
           >
-            <span className={`block w-5 h-[2px] bg-white transition-transform ${mobileOpen ? "rotate-45 translate-y-[5px]" : ""}`} />
-            <span className={`block w-5 h-[2px] bg-white transition-opacity ${mobileOpen ? "opacity-0" : ""}`} />
-            <span className={`block w-5 h-[2px] bg-white transition-transform ${mobileOpen ? "-rotate-45 -translate-y-[5px]" : ""}`} />
+            <span
+              className={`block w-5 h-[2px] bg-white transition-transform ${mobileOpen ? "rotate-45 translate-y-[5px]" : ""}`}
+            />
+            <span
+              className={`block w-5 h-[2px] bg-white transition-opacity ${mobileOpen ? "opacity-0" : ""}`}
+            />
+            <span
+              className={`block w-5 h-[2px] bg-white transition-transform ${mobileOpen ? "-rotate-45 -translate-y-[5px]" : ""}`}
+            />
           </button>
         </div>
       </div>
@@ -110,9 +116,7 @@ export function Navigation() {
               key={link.path}
               to={link.path}
               className={`block font-mono text-[14px] py-3 border-b border-[#111] transition-colors ${
-                location.pathname === link.path
-                  ? "text-[#00F0FF]"
-                  : "text-[#999] hover:text-white"
+                location.pathname === link.path ? "text-[#00F0FF]" : "text-[#999] hover:text-white"
               }`}
             >
               {link.label}

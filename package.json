@@ -1,14 +1,19 @@
 {
   "name": "boxy-landing-page",
-  "private": true,
   "version": "0.0.1",
+  "private": true,
   "type": "module",
   "scripts": {
-    "build": "npm run generate:sitemap && npm run build:app && npm run prerender",
+    "build": "pnpm run generate:sitemap && pnpm run build:app && pnpm run prerender",
     "build:app": "vite build",
     "dev": "vite",
     "generate:sitemap": "node scripts/generate-sitemap.mjs",
-    "prerender": "node scripts/prerender.mjs"
+    "format": "oxfmt .",
+    "format:check": "oxfmt . --check",
+    "lint": "oxlint . --react-plugin",
+    "lint:fix": "oxlint . --react-plugin --fix",
+    "prerender": "node scripts/prerender.mjs",
+    "typecheck": "tsc -b"
   },
   "dependencies": {
     "lucide-react": "0.487.0",
@@ -18,12 +23,24 @@
   },
   "devDependencies": {
     "@tailwindcss/vite": "4.1.12",
+    "@types/node": "25.3.3",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
     "@vitejs/plugin-react": "4.7.0",
+    "oxfmt": "0.36.0",
+    "oxlint": "1.51.0",
     "puppeteer": "24.15.0",
     "tailwindcss": "4.1.12",
+    "typescript": "5.9.3",
     "vite": "6.3.5"
   },
+  "packageManager": "pnpm@10.30.3",
   "pnpm": {
+    "onlyBuiltDependencies": [
+      "@tailwindcss/oxide",
+      "esbuild",
+      "puppeteer"
+    ],
     "overrides": {
       "vite": "6.3.5"
     }

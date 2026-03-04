@@ -15,12 +15,9 @@ const INDEXABLE_ROUTES = [
 const lastMod = new Date().toISOString().slice(0, 10);
 const sitemapEntries = INDEXABLE_ROUTES.map((route) => {
   const url = route === "/" ? SITE_ORIGIN : `${SITE_ORIGIN}${route}`;
-  return [
-    "  <url>",
-    `    <loc>${url}</loc>`,
-    `    <lastmod>${lastMod}</lastmod>`,
-    "  </url>",
-  ].join("\n");
+  return ["  <url>", `    <loc>${url}</loc>`, `    <lastmod>${lastMod}</lastmod>`, "  </url>"].join(
+    "\n",
+  );
 }).join("\n");
 
 const sitemapXml = [

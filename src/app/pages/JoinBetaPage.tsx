@@ -18,12 +18,10 @@ export function JoinBetaPage() {
           <div className="w-14 h-14 border-2 border-[#10b981] mx-auto mb-6 flex items-center justify-center">
             <Check size={24} className="text-[#10b981]" />
           </div>
-          <h2 className="font-mono text-[24px] text-white mb-3">
-            Request received
-          </h2>
+          <h2 className="font-mono text-[24px] text-white mb-3">Request received</h2>
           <p className="font-mono text-[14px] text-[#888] leading-[1.8]">
-            Your beta access request has been logged. We review applications
-            weekly. You'll receive an invite link if selected.
+            Your beta access request has been logged. We review applications weekly. You'll receive
+            an invite link if selected.
           </p>
           <div className="mt-6 font-mono text-[13px] text-[#555]">
             Queue position: #848 — Est. wait: 2-4 weeks
@@ -40,12 +38,10 @@ export function JoinBetaPage() {
           <span className="font-mono text-[12px] text-[#FF5A00] block mb-4 tracking-wide">
             JOIN BETA
           </span>
-          <h1 className="font-mono text-[28px] md:text-[36px] text-white mb-3">
-            Request access
-          </h1>
+          <h1 className="font-mono text-[28px] md:text-[36px] text-white mb-3">Request access</h1>
           <p className="font-mono text-[14px] text-[#888] leading-[1.8] mb-8">
-            Boxy is currently in closed beta. We onboard new users weekly
-            based on use-case fit and infrastructure capacity.
+            Boxy is currently in closed beta. We onboard new users weekly based on use-case fit and
+            infrastructure capacity.
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-5">

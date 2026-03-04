@@ -108,9 +108,8 @@ export function PrivacySecurityPage() {
             <span className="text-[#888]">Not a feature.</span>
           </h1>
           <p className="font-mono text-[15px] text-[#888] leading-[1.8] max-w-[700px]">
-            Most companies treat privacy as a compliance checkbox. At Boxy,
-            privacy is the core technical challenge and our primary
-            competitive advantage.
+            Most companies treat privacy as a compliance checkbox. At Boxy, privacy is the core
+            technical challenge and our primary competitive advantage.
           </p>
         </div>
 
@@ -127,22 +126,20 @@ export function PrivacySecurityPage() {
 
               <div className="max-w-[800px] mb-10">
                 <p className="font-mono text-[15px] text-[#888] leading-[1.9] mb-6">
-                  A lot of AI agents stress privacy by saying "your data is stored
-                  locally." But here's the problem: whenever inference or embedding
-                  is needed, they send everything to the cloud. Your messages, your
-                  contacts, your location — all of it leaves your device the moment
-                  the AI needs to think.
+                  A lot of AI agents stress privacy by saying "your data is stored locally." But
+                  here's the problem: whenever inference or embedding is needed, they send
+                  everything to the cloud. Your messages, your contacts, your location — all of it
+                  leaves your device the moment the AI needs to think.
                 </p>
                 <p className="font-mono text-[15px] text-[#888] leading-[1.9] mb-6">
                   That's not privacy. That's a marketing claim with a backdoor.
                 </p>
                 <p className="font-mono text-[15px] text-[#888] leading-[1.9]">
                   We call our local processing environment{" "}
-                  <span className="text-white">the Box</span> — your personal,
-                  on-device privacy layer where all obfuscation, NER extraction,
-                  and embedding happen. Everything that can be processed locally
-                  stays inside the Box. Nothing leaves until it's been stripped of
-                  anything that could identify you.
+                  <span className="text-white">the Box</span> — your personal, on-device privacy
+                  layer where all obfuscation, NER extraction, and embedding happen. Everything that
+                  can be processed locally stays inside the Box. Nothing leaves until it's been
+                  stripped of anything that could identify you.
                 </p>
               </div>
 
@@ -151,9 +148,7 @@ export function PrivacySecurityPage() {
                 <div className="border border-[#ef4444]/20 bg-[#ef4444]/5 p-6">
                   <div className="flex items-center gap-3 mb-4">
                     <XCircle size={24} className="text-[#ef4444]" />
-                    <span className="font-mono text-[15px] text-[#ef4444]">
-                      Other agents
-                    </span>
+                    <span className="font-mono text-[15px] text-[#ef4444]">Other agents</span>
                   </div>
                   <div className="space-y-3 font-mono text-[13px] text-[#888] leading-[1.7]">
                     <div className="flex items-start gap-2">
@@ -177,9 +172,7 @@ export function PrivacySecurityPage() {
                 <div className="border border-[#10b981]/20 bg-[#10b981]/5 p-6">
                   <div className="flex items-center gap-3 mb-4">
                     <CheckCircle size={24} className="text-[#10b981]" />
-                    <span className="font-mono text-[15px] text-[#10b981]">
-                      Boxy
-                    </span>
+                    <span className="font-mono text-[15px] text-[#10b981]">Boxy</span>
                   </div>
                   <div className="space-y-3 font-mono text-[13px] text-[#888] leading-[1.7]">
                     <div className="flex items-start gap-2">
@@ -209,11 +202,10 @@ export function PrivacySecurityPage() {
                 Local obfuscation
               </h2>
               <p className="font-mono text-[14px] text-[#888] leading-[1.8] mb-8 max-w-[700px]">
-                Before any data leaves your device, our on-device NER engine
-                identifies and replaces personally identifiable information
-                with anonymous tokens. Non-sensitive content passes through
-                untouched — the cloud sees the conversation's intent but can
-                never link it back to a real person.
+                Before any data leaves your device, our on-device NER engine identifies and replaces
+                personally identifiable information with anonymous tokens. Non-sensitive content
+                passes through untouched — the cloud sees the conversation's intent but can never
+                link it back to a real person.
               </p>
 
               {/* Code diff */}
@@ -234,7 +226,9 @@ export function PrivacySecurityPage() {
                   <div className="border-b md:border-b-0 md:border-r border-[#222] p-5 space-y-2">
                     {USER_DATA_LINES.map((line, i) => (
                       <div key={i} className="flex items-start gap-2">
-                        <span className="font-mono text-[12px] text-[#444] w-5 shrink-0 text-right">{i + 1}</span>
+                        <span className="font-mono text-[12px] text-[#444] w-5 shrink-0 text-right">
+                          {i + 1}
+                        </span>
                         <span className="font-mono text-[13px] text-[#888]">{line}</span>
                       </div>
                     ))}
@@ -245,8 +239,12 @@ export function PrivacySecurityPage() {
                         key={i}
                         className={`flex items-start gap-2 ${line.changed ? "bg-[#10b981]/5 -mx-2 px-2 py-0.5" : "py-0.5"}`}
                       >
-                        <span className="font-mono text-[12px] text-[#444] w-5 shrink-0 text-right">{i + 1}</span>
-                        <span className={`font-mono text-[13px] ${line.changed ? "text-[#10b981]" : "text-[#888]"}`}>
+                        <span className="font-mono text-[12px] text-[#444] w-5 shrink-0 text-right">
+                          {i + 1}
+                        </span>
+                        <span
+                          className={`font-mono text-[13px] ${line.changed ? "text-[#10b981]" : "text-[#888]"}`}
+                        >
                           {line.text}
                         </span>
                       </div>
@@ -267,17 +265,13 @@ export function PrivacySecurityPage() {
               <div className="border border-[#1a1a1a] p-6 md:p-8 max-w-[900px]">
                 <div className="flex items-center gap-3 mb-4">
                   <Cpu size={24} className="text-[#00F0FF]" />
-                  <h3 className="font-mono text-[16px] text-white">
-                    Local embedding
-                  </h3>
+                  <h3 className="font-mono text-[16px] text-white">Local embedding</h3>
                 </div>
                 <p className="font-mono text-[14px] text-[#888] leading-[1.8]">
-                  Beyond obfuscation, we also generate embeddings locally on your
-                  laptop. This means we understand the semantic meaning of your
-                  data without any raw text ever reaching a remote server. The
-                  cloud receives only anonymized vectors — mathematical
-                  representations that cannot be reverse-engineered back to your
-                  original text.
+                  Beyond obfuscation, we also generate embeddings locally on your laptop. This means
+                  we understand the semantic meaning of your data without any raw text ever reaching
+                  a remote server. The cloud receives only anonymized vectors — mathematical
+                  representations that cannot be reverse-engineered back to your original text.
                 </p>
               </div>
             </div>
@@ -288,8 +282,8 @@ export function PrivacySecurityPage() {
                 How data flows through Boxy
               </h2>
               <p className="font-mono text-[14px] text-[#888] leading-[1.8] mb-10 max-w-[700px]">
-                Every step is designed to minimize data exposure. The first four
-                steps happen entirely on your device.
+                Every step is designed to minimize data exposure. The first four steps happen
+                entirely on your device.
               </p>
 
               <div className="space-y-3">
@@ -301,52 +295,54 @@ export function PrivacySecurityPage() {
                     </span>
                   </div>
                   <div className="space-y-3">
-                    {DATA_FLOW.filter((s) => ["01", "02", "03", "04"].includes(s.step)).map((step) => (
-                      <div
-                        key={step.step}
-                        className="border border-[#1a1a1a] hover:border-[#222] transition-colors"
-                      >
-                        <div className="grid grid-cols-12 items-center">
-                          <div className="col-span-1 p-4 border-r border-[#1a1a1a] text-center hidden md:block">
-                            <span className="font-mono text-[14px] text-[#00F0FF]">
-                              {step.step}
-                            </span>
-                          </div>
-                          <div className="col-span-12 md:col-span-2 p-4 border-b md:border-b-0 md:border-r border-[#1a1a1a]">
-                            <div className="flex items-center gap-2">
-                              <span className="font-mono text-[14px] text-[#00F0FF] md:hidden">
-                                {step.step}.
+                    {DATA_FLOW.filter((s) => ["01", "02", "03", "04"].includes(s.step)).map(
+                      (step) => (
+                        <div
+                          key={step.step}
+                          className="border border-[#1a1a1a] hover:border-[#222] transition-colors"
+                        >
+                          <div className="grid grid-cols-12 items-center">
+                            <div className="col-span-1 p-4 border-r border-[#1a1a1a] text-center hidden md:block">
+                              <span className="font-mono text-[14px] text-[#00F0FF]">
+                                {step.step}
                               </span>
-                              <step.icon size={16} className="text-[#888]" />
-                              <span className="font-mono text-[13px] text-white">
-                                {step.label}
+                            </div>
+                            <div className="col-span-12 md:col-span-2 p-4 border-b md:border-b-0 md:border-r border-[#1a1a1a]">
+                              <div className="flex items-center gap-2">
+                                <span className="font-mono text-[14px] text-[#00F0FF] md:hidden">
+                                  {step.step}.
+                                </span>
+                                <step.icon size={16} className="text-[#888]" />
+                                <span className="font-mono text-[13px] text-white">
+                                  {step.label}
+                                </span>
+                              </div>
+                            </div>
+                            <div className="col-span-12 md:col-span-4 p-4 border-b md:border-b-0 md:border-r border-[#1a1a1a]">
+                              <span className="font-mono text-[13px] text-[#888]">
+                                {step.description}
+                              </span>
+                            </div>
+                            <div className="col-span-12 md:col-span-3 p-4 border-b md:border-b-0 md:border-r border-[#1a1a1a]">
+                              <span className="font-mono text-[12px] text-[#10b981]">
+                                {step.privacy}
+                              </span>
+                            </div>
+                            <div className="col-span-12 md:col-span-2 p-4">
+                              <span
+                                className={`font-mono text-[12px] px-2 py-1 border ${
+                                  step.location === "The Box"
+                                    ? "border-[#10b981]/30 text-[#10b981]"
+                                    : "border-[#f59e0b]/30 text-[#f59e0b]"
+                                }`}
+                              >
+                                {step.location}
                               </span>
                             </div>
                           </div>
-                          <div className="col-span-12 md:col-span-4 p-4 border-b md:border-b-0 md:border-r border-[#1a1a1a]">
-                            <span className="font-mono text-[13px] text-[#888]">
-                              {step.description}
-                            </span>
-                          </div>
-                          <div className="col-span-12 md:col-span-3 p-4 border-b md:border-b-0 md:border-r border-[#1a1a1a]">
-                            <span className="font-mono text-[12px] text-[#10b981]">
-                              {step.privacy}
-                            </span>
-                          </div>
-                          <div className="col-span-12 md:col-span-2 p-4">
-                            <span
-                              className={`font-mono text-[12px] px-2 py-1 border ${
-                                step.location === "The Box"
-                                  ? "border-[#10b981]/30 text-[#10b981]"
-                                  : "border-[#f59e0b]/30 text-[#f59e0b]"
-                              }`}
-                            >
-                              {step.location}
-                            </span>
-                          </div>
                         </div>
-                      </div>
-                    ))}
+                      ),
+                    )}
                   </div>
                 </div>
 
@@ -358,9 +354,7 @@ export function PrivacySecurityPage() {
                   >
                     <div className="grid grid-cols-12 items-center">
                       <div className="col-span-1 p-4 border-r border-[#1a1a1a] text-center hidden md:block">
-                        <span className="font-mono text-[14px] text-[#00F0FF]">
-                          {step.step}
-                        </span>
+                        <span className="font-mono text-[14px] text-[#00F0FF]">{step.step}</span>
                       </div>
                       <div className="col-span-12 md:col-span-2 p-4 border-b md:border-b-0 md:border-r border-[#1a1a1a]">
                         <div className="flex items-center gap-2">
@@ -368,9 +362,7 @@ export function PrivacySecurityPage() {
                             {step.step}.
                           </span>
                           <step.icon size={16} className="text-[#888]" />
-                          <span className="font-mono text-[13px] text-white">
-                            {step.label}
-                          </span>
+                          <span className="font-mono text-[13px] text-white">{step.label}</span>
                         </div>
                       </div>
                       <div className="col-span-12 md:col-span-4 p-4 border-b md:border-b-0 md:border-r border-[#1a1a1a]">
@@ -379,9 +371,7 @@ export function PrivacySecurityPage() {
                         </span>
                       </div>
                       <div className="col-span-12 md:col-span-3 p-4 border-b md:border-b-0 md:border-r border-[#1a1a1a]">
-                        <span className="font-mono text-[12px] text-[#10b981]">
-                          {step.privacy}
-                        </span>
+                        <span className="font-mono text-[12px] text-[#10b981]">{step.privacy}</span>
                       </div>
                       <div className="col-span-12 md:col-span-2 p-4">
                         <span
@@ -401,8 +391,8 @@ export function PrivacySecurityPage() {
 
               <div className="mt-6 border border-[#10b981]/20 bg-[#10b981]/5 p-6 text-center">
                 <p className="font-mono text-[14px] text-[#10b981] leading-[1.8]">
-                  Result: Your identity never leaves the box. Zero PII in transit.
-                  Zero PII in cloud storage. Full functionality preserved.
+                  Result: Your identity never leaves the box. Zero PII in transit. Zero PII in cloud
+                  storage. Full functionality preserved.
                 </p>
               </div>
             </div>
@@ -413,22 +403,21 @@ export function PrivacySecurityPage() {
                 Security through agent design
               </h2>
               <p className="font-mono text-[14px] text-[#888] leading-[1.8] mb-8 max-w-[700px]">
-                Beyond data privacy, we've taken an opinionated approach to agent
-                security by abandoning the general-purpose agent design entirely.
+                Beyond data privacy, we've taken an opinionated approach to agent security by
+                abandoning the general-purpose agent design entirely.
               </p>
 
               <div className="max-w-[800px] mb-8">
                 <p className="font-mono text-[15px] text-[#888] leading-[1.9] mb-6">
-                  Instead of one monolithic agent that promises to do everything,
-                  we adopt a Unix-inspired design: thousands of small agents, each
-                  doing one thing and doing it well.
+                  Instead of one monolithic agent that promises to do everything, we adopt a
+                  Unix-inspired design: thousands of small agents, each doing one thing and doing it
+                  well.
                 </p>
                 <p className="font-mono text-[15px] text-[#888] leading-[1.9] mb-6">
                   This design allows us to require each agent to have a{" "}
-                  <span className="text-[#00F0FF]">capability manifest</span> — a
-                  declaration of exactly what skills it can use and what personal
-                  data it can access. No agent ever gets granted access to do
-                  things it wasn't designed to do.
+                  <span className="text-[#00F0FF]">capability manifest</span> — a declaration of
+                  exactly what skills it can use and what personal data it can access. No agent ever
+                  gets granted access to do things it wasn't designed to do.
                 </p>
               </div>
 
@@ -441,7 +430,7 @@ export function PrivacySecurityPage() {
                 </div>
                 <pre className="p-5 overflow-x-auto">
                   <code className="font-mono text-[13px] text-[#888] leading-[1.8]">
-{`{
+                    {`{
   "agent_id": "email_draft_v2",
   "skills": [
     "draft_email",
@@ -463,9 +452,9 @@ export function PrivacySecurityPage() {
               </div>
 
               <p className="font-mono text-[14px] text-[#888] leading-[1.8] max-w-[700px] mb-6">
-                This protects users from agent malfunction — if an email-drafting
-                agent is compromised, it cannot access your financial data or
-                social media messages. The blast radius is contained by design.
+                This protects users from agent malfunction — if an email-drafting agent is
+                compromised, it cannot access your financial data or social media messages. The
+                blast radius is contained by design.
               </p>
 
               <Link
@@ -521,9 +510,7 @@ export function PrivacySecurityPage() {
                   >
                     <p.icon size={24} strokeWidth={1.5} className="text-[#10b981] mb-4" />
                     <h3 className="font-mono text-[14px] text-white mb-2">{p.title}</h3>
-                    <p className="font-mono text-[13px] text-[#888] leading-[1.7]">
-                      {p.desc}
-                    </p>
+                    <p className="font-mono text-[13px] text-[#888] leading-[1.7]">{p.desc}</p>
                   </div>
                 ))}
               </div>

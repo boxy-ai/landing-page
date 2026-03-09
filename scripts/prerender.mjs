@@ -89,9 +89,6 @@ async function run() {
     });
 
     const page = await browser.newPage();
-    await page.evaluateOnNewDocument(() => {
-      window.__BOXY_PRERENDER__ = true;
-    });
 
     for (const route of PRERENDER_ROUTES) {
       const routeUrl = `${PREVIEW_ORIGIN}${route}`;

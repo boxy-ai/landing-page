@@ -1,84 +1,83 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { Check } from "lucide-react";
 import { HUBSPOT_WAITLIST_FORM, isHubSpotWaitlistConfigured } from "../hubspotWaitlist";
 
-const FORM_RENDER_TIMEOUT_MS = 6000;
+const HUBSPOT_SUBMIT_ENDPOINT = `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_WAITLIST_FORM.portalId}/${HUBSPOT_WAITLIST_FORM.formId}`;
+const GENERIC_SUBMIT_ERROR =
+  "We couldn't add you to the waitlist right now. Please try again in a moment.";
 
-type FormStatus = "loading" | "ready" | "error" | "submitted";
+type SubmitState = "idle" | "submitting" | "submitted";
 
-interface HubSpotFormEventDetail {
-  formId?: string;
-  instanceId?: string;
+interface HubSpotSubmissionError {
+  message?: string;
+  errorType?: string;
+  errors?: Array<{ message?: string; errorType?: string }>;
 }
 
-function getInitialStatus(): FormStatus {
-  if (typeof window !== "undefined" && window.__BOXY_PRERENDER__) {
-    return "loading";
+function readCookie(name: string) {
+  if (typeof document === "undefined") {
+    return null;
   }
 
-  return isHubSpotWaitlistConfigured() ? "loading" : "error";
+  const cookies = document.cookie.split("; ");
+  const cookie = cookies.find((entry) => entry.startsWith(`${name}=`));
+  if (!cookie) {
+    return null;
+  }
+
+  return decodeURIComponent(cookie.slice(name.length + 1));
 }
 
-function getErrorMessage(reason: "unconfigured" | "load" | "render") {
-  if (!import.meta.env.DEV) {
-    return "The waitlist form is temporarily unavailable. Please try again shortly.";
-  }
-
-  if (reason === "unconfigured") {
-    return "Waitlist form configuration is missing. Update src/app/hubspotWaitlist.ts with the live portalId, formId, and region.";
-  }
-
-  if (reason === "load") {
-    return "HubSpot's embed script could not be loaded. Check network access or content-blocking extensions.";
-  }
-
-  return "HubSpot loaded, but the waitlist form did not render. Verify the embed snippet values in src/app/hubspotWaitlist.ts.";
+function isValidEmail(email: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-function getHubSpotFormScriptSrc() {
-  if (HUBSPOT_WAITLIST_FORM.region === "na1") {
-    return `https://js.hsforms.net/forms/embed/${HUBSPOT_WAITLIST_FORM.portalId}.js`;
+function getHubSpotErrorDetail(payload: unknown) {
+  if (!payload || typeof payload !== "object") {
+    return null;
   }
 
-  return `https://js-${HUBSPOT_WAITLIST_FORM.region}.hsforms.net/forms/embed/${HUBSPOT_WAITLIST_FORM.portalId}.js`;
-}
+  const hubSpotError = payload as HubSpotSubmissionError;
+  const firstError = hubSpotError.errors?.find(
+    (error) => typeof error.message === "string" || typeof error.errorType === "string",
+  );
 
-function loadHubSpotFormsScript(scriptSrc: string) {
-  return new Promise<HTMLScriptElement>((resolve, reject) => {
-    const script = document.createElement("script");
-    script.src = scriptSrc;
-    script.async = true;
-    script.defer = true;
-    script.type = "text/javascript";
-    script.charset = "utf-8";
-    script.dataset.hubspotForms = "true";
-    script.dataset.hubspotFormsSrc = scriptSrc;
-    script.addEventListener("load", () => resolve(script), { once: true });
-    script.addEventListener(
-      "error",
-      () => reject(new Error("Failed to load the HubSpot forms script.")),
-      { once: true },
-    );
-    document.head.append(script);
-  });
-}
-
-function WaitlistLoadingState() {
   return (
-    <div className="space-y-5" aria-hidden="true">
-      <div className="h-3 w-28 bg-[#1a1a1a] animate-pulse" />
-      <div className="h-12 w-full bg-[#111] animate-pulse" />
-      <div className="h-3 w-20 bg-[#1a1a1a] animate-pulse" />
-      <div className="h-12 w-full bg-[#111] animate-pulse" />
-      <div className="h-3 w-36 bg-[#1a1a1a] animate-pulse" />
-      <div className="h-24 w-full bg-[#111] animate-pulse" />
-      <div className="h-12 w-full bg-[#FF5A00]/20 animate-pulse" />
-      <p className="font-mono text-[12px] text-[#555]">Loading waitlist form...</p>
-    </div>
+    firstError?.message ??
+    firstError?.errorType ??
+    hubSpotError.message ??
+    hubSpotError.errorType ??
+    null
   );
 }
 
-function WaitlistErrorState({ message }: { message: string }) {
+function getSubmitErrorMessage(detail: string | null) {
+  if (!detail) {
+    return GENERIC_SUBMIT_ERROR;
+  }
+
+  if (!import.meta.env.DEV) {
+    return GENERIC_SUBMIT_ERROR;
+  }
+
+  const normalizedDetail = detail.toLowerCase();
+
+  if (normalizedDetail.includes("captcha")) {
+    return "HubSpot rejected the submission because CAPTCHA is enabled on this form. Disable CAPTCHA for this form or move submission behind a server you control.";
+  }
+
+  if (normalizedDetail.includes("required_field")) {
+    return "HubSpot still expects required fields this page is not sending. Make firstname, lastname, and email the only required fields on the HubSpot form.";
+  }
+
+  if (normalizedDetail.includes("field_not_in_form_definition")) {
+    return "HubSpot doesn't recognize firstname, lastname, and/or email on this form. Confirm those exact fields exist on the HubSpot form definition.";
+  }
+
+  return `HubSpot rejected the submission: ${detail}`;
+}
+
+function WaitlistUnavailable({ message }: { message: string }) {
   return (
     <div className="border border-[#222] bg-[#0d0d0d] p-6 md:p-8">
       <div className="w-14 h-14 border-2 border-[#FF5A00] mb-6 flex items-center justify-center">
@@ -96,164 +95,215 @@ function WaitlistSuccessState() {
       <div className="w-14 h-14 border-2 border-[#10b981] mx-auto mb-6 flex items-center justify-center">
         <Check size={24} className="text-[#10b981]" />
       </div>
-      <h2 className="font-mono text-[24px] text-white mb-3">Request received</h2>
+      <h2 className="font-mono text-[24px] text-white mb-3">You&apos;re on the list</h2>
       <p className="font-mono text-[14px] text-[#888] leading-[1.8]">
-        Thanks for joining the Boxy waitlist. We review submissions in weekly batches and will reach
-        out as new beta capacity opens.
+        Thanks for joining the Boxy waitlist. We review new spots weekly and will reach out when
+        there&apos;s concrete beta capacity to offer.
       </p>
     </div>
   );
 }
 
 export function HubSpotWaitlistForm() {
-  const [status, setStatus] = useState<FormStatus>(() => getInitialStatus());
-  const [errorMessage, setErrorMessage] = useState<string | null>(() =>
-    isHubSpotWaitlistConfigured() ? null : getErrorMessage("unconfigured"),
-  );
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const renderTimeoutRef = useRef<number | null>(null);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [honeypot, setHoneypot] = useState("");
+  const [submitState, setSubmitState] = useState<SubmitState>("idle");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (typeof window === "undefined") {
-      return;
-    }
+  if (!isHubSpotWaitlistConfigured()) {
+    const message = import.meta.env.DEV
+      ? "Waitlist form configuration is missing. Update src/app/hubspotWaitlist.ts with the live portalId and formId."
+      : "The waitlist is temporarily unavailable. Please try again shortly.";
 
-    if (window.__BOXY_PRERENDER__) {
-      return;
-    }
+    return <WaitlistUnavailable message={message} />;
+  }
 
-    if (!isHubSpotWaitlistConfigured()) {
-      setStatus("error");
-      setErrorMessage(getErrorMessage("unconfigured"));
-      return;
-    }
-
-    let cancelled = false;
-    let injectedScript: HTMLScriptElement | null = null;
-    const containerElement = containerRef.current;
-
-    const clearRenderTimeout = () => {
-      if (renderTimeoutRef.current !== null) {
-        window.clearTimeout(renderTimeoutRef.current);
-        renderTimeoutRef.current = null;
-      }
-    };
-
-    const handleReady = (event: Event) => {
-      const detail = (event as CustomEvent<HubSpotFormEventDetail>).detail;
-      if (detail?.formId !== HUBSPOT_WAITLIST_FORM.formId) {
-        return;
-      }
-
-      clearRenderTimeout();
-      if (!cancelled) {
-        setStatus("ready");
-      }
-    };
-
-    const handleSubmissionSuccess = (event: Event) => {
-      const detail = (event as CustomEvent<HubSpotFormEventDetail>).detail;
-      if (detail?.formId !== HUBSPOT_WAITLIST_FORM.formId) {
-        return;
-      }
-
-      clearRenderTimeout();
-      if (!cancelled) {
-        setStatus("submitted");
-      }
-    };
-
-    window.addEventListener("hs-form-event:on-ready", handleReady as EventListener);
-    window.addEventListener(
-      "hs-form-event:on-submission:success",
-      handleSubmissionSuccess as EventListener,
-    );
-
-    setStatus("loading");
-    setErrorMessage(null);
-
-    const createForm = async () => {
-      try {
-        if (!containerElement) {
-          throw new Error("HubSpot form container is unavailable.");
-        }
-
-        const scriptSrc = getHubSpotFormScriptSrc();
-        injectedScript = await loadHubSpotFormsScript(scriptSrc);
-        if (cancelled) {
-          return;
-        }
-
-        renderTimeoutRef.current = window.setTimeout(() => {
-          if (cancelled) {
-            return;
-          }
-
-          const hasRenderedForm = Boolean(
-            containerElement.querySelector("iframe, form, [data-hs-forms-root]"),
-          );
-          if (!hasRenderedForm) {
-            setStatus("error");
-            setErrorMessage(getErrorMessage("render"));
-          }
-        }, FORM_RENDER_TIMEOUT_MS);
-      } catch {
-        if (cancelled) {
-          return;
-        }
-
-        setStatus("error");
-        setErrorMessage(getErrorMessage("load"));
-      }
-    };
-
-    void createForm();
-
-    return () => {
-      cancelled = true;
-      clearRenderTimeout();
-      window.removeEventListener("hs-form-event:on-ready", handleReady as EventListener);
-      window.removeEventListener(
-        "hs-form-event:on-submission:success",
-        handleSubmissionSuccess as EventListener,
-      );
-      if (injectedScript?.parentNode) {
-        injectedScript.parentNode.removeChild(injectedScript);
-      }
-      if (containerElement) {
-        containerElement.innerHTML = "";
-      }
-    };
-  }, []);
-
-  if (status === "submitted") {
+  if (submitState === "submitted") {
     return <WaitlistSuccessState />;
   }
 
-  if (status === "error") {
-    return <WaitlistErrorState message={errorMessage ?? getErrorMessage("render")} />;
-  }
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const trimmedFirstName = firstName.trim();
+    const trimmedLastName = lastName.trim();
+    const trimmedEmail = email.trim();
+
+    if (!trimmedFirstName) {
+      setErrorMessage("Please enter your first name.");
+      return;
+    }
+
+    if (!trimmedLastName) {
+      setErrorMessage("Please enter your last name.");
+      return;
+    }
+
+    if (!isValidEmail(trimmedEmail)) {
+      setErrorMessage("Please enter a valid email address.");
+      return;
+    }
+
+    if (honeypot.trim()) {
+      setSubmitState("submitted");
+      return;
+    }
+
+    setSubmitState("submitting");
+    setErrorMessage(null);
+
+    const hutk = readCookie("hubspotutk");
+    const context = {
+      pageName: typeof document !== "undefined" ? document.title : "Boxy waitlist",
+      pageUri:
+        typeof window !== "undefined" ? window.location.href : "https://boxy-ai.com/join-beta",
+      ...(hutk ? { hutk } : {}),
+    };
+
+    try {
+      const response = await fetch(HUBSPOT_SUBMIT_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          submittedAt: `${Date.now()}`,
+          fields: [
+            { name: "firstname", value: trimmedFirstName },
+            { name: "lastname", value: trimmedLastName },
+            { name: "email", value: trimmedEmail },
+          ],
+          context,
+        }),
+      });
+
+      let payload: unknown = null;
+
+      try {
+        payload = await response.json();
+      } catch {
+        payload = null;
+      }
+
+      if (!response.ok) {
+        throw new Error(getHubSpotErrorDetail(payload) ?? "unknown_error");
+      }
+
+      setFirstName("");
+      setLastName("");
+      setEmail("");
+      setSubmitState("submitted");
+    } catch (error) {
+      const detail = error instanceof Error ? error.message : null;
+      setSubmitState("idle");
+      setErrorMessage(getSubmitErrorMessage(detail));
+      if (import.meta.env.DEV) {
+        console.error("HubSpot waitlist submission failed", error);
+      }
+    }
+  };
+
+  const isSubmitting = submitState === "submitting";
 
   return (
     <div className="border border-[#222] bg-[#0d0d0d] p-6 md:p-8">
-      <div className="hubspot-waitlist relative min-h-[420px]" aria-busy={status === "loading"}>
-        {status === "loading" ? (
-          <div className="absolute inset-0 z-10 pointer-events-none">
-            <WaitlistLoadingState />
+      <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div>
+            <label
+              htmlFor="waitlist-firstname"
+              className="font-mono text-[12px] text-[#666] block mb-2 tracking-wide"
+            >
+              FIRST NAME
+            </label>
+            <input
+              id="waitlist-firstname"
+              type="text"
+              autoComplete="given-name"
+              value={firstName}
+              onChange={(event) => setFirstName(event.target.value)}
+              disabled={isSubmitting}
+              className="w-full bg-[#111] border border-[#222] px-4 py-3 font-mono text-[14px] text-white placeholder:text-[#333] focus:border-[#00F0FF] focus:outline-none transition-all disabled:opacity-60"
+              placeholder="Ada"
+            />
           </div>
-        ) : null}
-        <div
-          ref={containerRef}
-          className={status === "loading" ? "opacity-0" : "opacity-100 transition-opacity"}
-        >
-          <div
-            className="hs-form-frame"
-            data-region={HUBSPOT_WAITLIST_FORM.region}
-            data-form-id={HUBSPOT_WAITLIST_FORM.formId}
-            data-portal-id={HUBSPOT_WAITLIST_FORM.portalId}
+
+          <div>
+            <label
+              htmlFor="waitlist-lastname"
+              className="font-mono text-[12px] text-[#666] block mb-2 tracking-wide"
+            >
+              LAST NAME
+            </label>
+            <input
+              id="waitlist-lastname"
+              type="text"
+              autoComplete="family-name"
+              value={lastName}
+              onChange={(event) => setLastName(event.target.value)}
+              disabled={isSubmitting}
+              className="w-full bg-[#111] border border-[#222] px-4 py-3 font-mono text-[14px] text-white placeholder:text-[#333] focus:border-[#00F0FF] focus:outline-none transition-all disabled:opacity-60"
+              placeholder="Lovelace"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label
+            htmlFor="waitlist-email"
+            className="font-mono text-[12px] text-[#666] block mb-2 tracking-wide"
+          >
+            EMAIL
+          </label>
+          <input
+            id="waitlist-email"
+            type="email"
+            autoComplete="email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+            disabled={isSubmitting}
+            className="w-full bg-[#111] border border-[#222] px-4 py-3 font-mono text-[14px] text-white placeholder:text-[#333] focus:border-[#00F0FF] focus:outline-none transition-all disabled:opacity-60"
+            placeholder="you@company.com"
           />
         </div>
-      </div>
+
+        <div
+          className="absolute left-[-9999px] top-auto w-px h-px overflow-hidden"
+          aria-hidden="true"
+        >
+          <label htmlFor="waitlist-website" className="font-mono text-[12px] text-[#666]">
+            Website
+          </label>
+          <input
+            id="waitlist-website"
+            type="text"
+            tabIndex={-1}
+            autoComplete="off"
+            value={honeypot}
+            onChange={(event) => setHoneypot(event.target.value)}
+          />
+        </div>
+
+        <p className="font-mono text-[12px] text-[#555] leading-[1.8]">
+          Just the essentials for now. We&apos;ll only contact you when a beta slot is available.
+        </p>
+
+        {errorMessage ? (
+          <div className="border border-[#ef4444]/30 bg-[#ef4444]/5 px-4 py-3">
+            <p className="font-mono text-[12px] text-[#ef4444] leading-[1.8]">{errorMessage}</p>
+          </div>
+        ) : null}
+
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className="w-full font-mono text-[14px] px-6 py-4 bg-[#FF5A00] text-black hover:shadow-[0_0_24px_rgba(255,90,0,0.4)] transition-all disabled:opacity-70 disabled:hover:shadow-none cursor-pointer"
+        >
+          {isSubmitting ? "Joining..." : "Join the Waitlist"}
+        </button>
+      </form>
     </div>
   );
 }

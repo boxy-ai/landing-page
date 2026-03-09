@@ -62,8 +62,7 @@ const ROUTE_SEO: Record<string, RouteSeoMeta> = {
   },
   "/join-beta": {
     title: "Join the Beta | Boxy",
-    description:
-      "Request access to Boxy's closed beta and share your use case for proactive personal intelligence.",
+    description: "Join Boxy's beta waitlist with your name and email to hear when new spots open.",
     canonicalPath: "/join-beta",
     robots: "index,follow",
   },

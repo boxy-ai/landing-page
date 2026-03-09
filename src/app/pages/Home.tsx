@@ -169,16 +169,12 @@ function BetaButton({
   className?: string;
 }) {
   return (
-    <div className="relative group inline-block">
-      <span
-        className={`font-mono text-[14px] px-6 py-3 bg-[#FF5A00]/20 text-[#FF5A00]/60 cursor-default select-none inline-block ${className}`}
-      >
-        {children}
-      </span>
-      <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-3 py-1.5 bg-[#1a1a1a] border border-[#333] opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-50">
-        <span className="font-mono text-[11px] text-[#888]">Reopening soon</span>
-      </div>
-    </div>
+    <Link
+      to="/join-beta"
+      className={`inline-flex items-center justify-center font-mono text-[14px] px-6 py-3 bg-[#FF5A00] text-black hover:shadow-[0_0_24px_rgba(255,90,0,0.4)] transition-all ${className}`}
+    >
+      {children}
+    </Link>
   );
 }
 

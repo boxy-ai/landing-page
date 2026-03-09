@@ -81,14 +81,14 @@ export function Navigation() {
             We Are Hiring
           </Link>
 
-          <div className="relative group">
-            <span className="font-mono text-[13px] px-5 py-2 bg-[#FF5A00]/20 text-[#FF5A00]/60 cursor-default select-none inline-block">
-              Join Beta
-            </span>
-            <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-3 py-1.5 bg-[#1a1a1a] border border-[#333] opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-50">
-              <span className="font-mono text-[11px] text-[#888]">Reopening soon</span>
-            </div>
-          </div>
+          <Link
+            to="/join-beta"
+            className={`font-mono text-[13px] px-5 py-2 bg-[#FF5A00] text-black hover:shadow-[0_0_24px_rgba(255,90,0,0.28)] transition-all hidden sm:inline-block ${
+              location.pathname === "/join-beta" ? "shadow-[0_0_24px_rgba(255,90,0,0.2)]" : ""
+            }`}
+          >
+            Join Beta
+          </Link>
 
           {/* Mobile Menu Button */}
           <button
@@ -128,12 +128,16 @@ export function Navigation() {
           >
             We Are Hiring
           </Link>
-          <div className="flex items-center gap-2 py-3 border-b border-[#111]">
-            <span className="font-mono text-[14px] text-[#555]">Join Beta</span>
-            <span className="font-mono text-[10px] px-1.5 py-0.5 border border-[#333] text-[#666]">
-              Reopening soon
-            </span>
-          </div>
+          <Link
+            to="/join-beta"
+            className={`block font-mono text-[14px] py-3 border-b border-[#111] transition-colors ${
+              location.pathname === "/join-beta"
+                ? "text-[#FF5A00]"
+                : "text-[#FF5A00] hover:text-white"
+            }`}
+          >
+            Join Beta
+          </Link>
           <button
             onClick={toggleTheme}
             className="flex items-center gap-2 py-3 font-mono text-[14px] text-[#999] hover:text-white transition-colors cursor-pointer"

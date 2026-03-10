@@ -7,7 +7,6 @@ const OPEN_ROLES = [
     team: "Engineering",
     locations: ["Remote", "Singapore"],
     type: "Full-time",
-    salary: "$100,000+ / year + Stock Options",
     description:
       "We need someone who thrives in ambiguity and moves fast without waiting for a spec. You will be one of the earliest engineers shaping the entire technical foundation — from architecture decisions to deployment pipelines — in a codebase where every line matters and every week ships something real. Every engineer on our team gets a maxed-out AI subscription — we provide the best tools so you can do the best work.",
     whatYouDo: [
@@ -29,7 +28,6 @@ const OPEN_ROLES = [
     team: "Marketing",
     locations: ["Remote", "San Francisco"],
     type: "Full-time",
-    salary: "$65,000+ / year + Stock Options",
     description:
       "This is a ground-floor role for someone who wants to own the entire growth function from day one. You will report directly to the CEO, have budget to hire agencies and freelancers, and operate with full autonomy to build the playbook that turns early traction into a movement.",
     whatYouDo: [
@@ -136,8 +134,6 @@ export function HiringPage() {
                         </span>
                         <span className="text-[#333]">/</span>
                         <span>{role.type}</span>
-                        <span className="text-[#333]">/</span>
-                        <span className="text-[#10b981]">{role.salary}</span>
                       </div>
                     </div>
                     <span className="font-mono text-[12px] text-[#555] group-open:text-[#00F0FF] transition-colors shrink-0">
